@@ -1,102 +1,56 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Wavelength 
+<!-- amiresponsive here -->
 
-Welcome,
+[View the Live Website here](https://wavelength-front-8ca0988d00ea.herokuapp.com/)
 
-This is the Code Institute student template for React apps on the Codeanywhere IDE. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.  
-DO NOT use this template if you are using the Gitpod IDE. Use the following command instead:  
-`npx create-react-app . --template git+https://github.com/Code-Institute-Org/cra-template-moments.git --use-npm`
+Wavelength is a social media community for sharing music. The Wavelength website is designed to make this process fun and seamless. Like with other social media
+websites, users of Wavelength can create and customise their own profiles. Authenticated users can then access all of the functionality that Wavelength has to offer.
+Users can share tracks they have been enjoying and review the tracks shared by other people. Tracks can be found through a variety of convenient filters, search fields, and ordering options. Additionally, users can follow the profiles of other users to tailor their feed to their taste in music. The overall aim of
+Wavelength is to provide a community environment for people to connect through music.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **8th August, 2023**
+To view the planning board used throughout this project's creation, [use this link](https://github.com/users/Shabucky1812/projects/3).
 
-## Codeanywhere Reminders
+## Contents
+- [UX](#ux)  
+- [Design](#design)  
+- [Features](#features)  
+- [Technologies Used](#technologies-used)  
+- [Deployment](#deployment)  
+- [Testing](#testing)  
+- [Credits](#credits) 
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## UX
 
-To log into the Heroku toolbelt CLI:
+### User Stories:  
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Wireframes:  
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Design
 
----
+### Colour Scheme:  
 
-Happy coding!
+### Typography:
 
-# Getting Started with Create React App
+## Features  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Existing Features:  
 
-## Available Scripts
+### Future Implementations:  
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm install`
+### Languages Used:  
 
-Installs the required npm packages.
+### Frameworks, Libraries, and Programs Used:  
 
-### `npm start`
+## Deployment
 
-Runs the app in the development mode.\
-Open port 3000 to view it in the browser.
+## Testing
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Please find the testing write-up for this project in [this Testing Document](testing.md).
 
-### `npm test`
+## Credits
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Contents  
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Acknowledgements  
