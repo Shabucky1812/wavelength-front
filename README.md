@@ -91,7 +91,32 @@ To view the planning board used throughout this project's creation, [use this li
 - US20 - Positive site experience
     - As a user I can easily enjoy using the website so that I have a seamless and positive experience interacting with Wavelength.
 
-### Wireframes:  
+### Wireframes:
+
+During the planning process of this project, the following wireframes were created (using [Balsamiq](https://balsamiq.com/)) to visualize how the site should
+be structured and plan how a user would traverse through the site.
+
+1. Discover/Feed Page:
+    ![Template wireframes for discover/feed page on desktop and mobile.](/documentation/wireframes/discover-page.png)  
+    This wireframe shows the structure of the discover page (and the feed page as the structure will remain the same with different tracks being loaded) which
+    will serve as Wavelength's index page. This page will allow users to scroll through the most recently shared tracks (only those by users they follow on the feed page) as well as letting them filter the tracks by score and genre.
+
+2. Search Page:
+    ![Template wireframes for search page on desktop and mobile.](/documentation/wireframes/search-page.png)  
+    This wireframe shows the search page that allows the user to look for specific tracks and profiles. This makes searching for specific content quicker for a better
+    overall experience.
+
+3. Track Page:
+    ![Template wireframes for track page on desktop and mobile.](/documentation/wireframes/track-page.png)  
+    This user will be brought to this page upon clicking on an individual track. They are shown the track in more detial as well as the reviews for the track left by other users. This is also where they will be able to edit or add their review.
+
+4. Profile Page:
+    ![Template wireframes for profile page on desktop and mobile.](/documentation/wireframes/profile-page.png)  
+    Users will be able to view profiles from pages based on this wireframe. The profile page will display a quick overview of the user, followed by a list of their shared tracks.
+
+5. Sign-In/Sign-Up/Sign-Out Pages:
+    ![Template wireframes for sign-in page on desktop and mobile.](/documentation/wireframes/sign-in-page.png)  
+    The pages for signing in, up, and out will all look similar to the sign in page mocked above and behave as you would expect them to.
 
 ## Design
 
@@ -110,6 +135,8 @@ To view the planning board used throughout this project's creation, [use this li
 ### Languages Used:  
 
 ### Frameworks, Libraries, and Programs Used:  
+
+- [Balsamiq](https://balsamiq.com/) - Used to create front-end wireframes during planning of this website.  
 
 ## Deployment
 
