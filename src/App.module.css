@@ -1,0 +1,10 @@
+* {
+    background-color: #2E3532;
+    color: #E0E2DB;
+}
+
+.App {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    min-height: 100vh;
+}
