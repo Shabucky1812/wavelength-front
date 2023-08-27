@@ -1,9 +1,20 @@
 .NavBar {
     background-color: #262C29;
+    border-bottom: 1px solid #F18F01;
+}
+
+.Active {
+    color: #FEA520;
 }
 
 h1 {
     font-weight: 900;
     text-transform: uppercase;
     color: #E0E2DB;
+}
+
+@media screen and (max-width: 575px) {
+    h1 {
+        font-size: 1.6rem;
+    }
 }

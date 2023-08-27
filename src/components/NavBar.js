@@ -5,19 +5,28 @@ import styles from '../styles/NavBar.module.css'
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
+// react-router-dom NavLink
+import { NavLink } from 'react-router-dom'
 
 const NavBar = () => {
   return (
     <Navbar className={styles.NavBar} expand="md" fixed="top" variant="dark">
       <Container>
-        <Navbar.Brand>
-          <h1>Wavelength</h1>
-        </Navbar.Brand>
+        <NavLink to="/">
+          <Navbar.Brand>
+            <h1>Wavelength</h1>
+          </Navbar.Brand>
+        </NavLink>
         {/* add track button here */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
-            links
+            <NavLink to="/" activeClassName={styles.Active} exact>
+              <i class="fa-solid fa-music"></i>Discover
+            </NavLink>
+            <NavLink to="/signin" activeClassName={styles.Active}>
+              <i class="fa-solid fa-arrow-right-to-bracket"></i>Sign In
+            </NavLink>
             {/* logged in/out icons here */}
           </Nav>
         </Navbar.Collapse>

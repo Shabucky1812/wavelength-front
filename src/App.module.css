@@ -5,3 +5,25 @@
     background-color: #2E3532;
     color: #E0E2DB;
 }
+
+.Main {
+    padding-top: 100px;
+}
+
+a {
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #E0E2DB;
+    font-size: 1.2rem;
+    transition: ease-in-out color 0.3s;
+}
+
+i {
+    padding-right: 5px;
+}
+
+a:hover {
+    color: #F18F01; 
+    text-decoration: none;
+}
