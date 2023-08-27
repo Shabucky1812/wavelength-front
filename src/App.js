@@ -2,6 +2,8 @@
 import styles from "./App.module.css";
 // components
 import NavBar from "./components/NavBar";
+// auth pages
+import SignUpForm from "./pages/auth/SignUpForm";
 // react-bootstrap
 import Container from "react-bootstrap/Container";
 // react-router-dom
@@ -17,7 +19,7 @@ function App() {
         <Switch>
           <Route exact path="/" render={() => <h2>discover</h2>} />
           <Route exact path="/signin" render={() => <h2>sign in</h2>} />
-          <Route exact path="/signup" render={() => <h2>sign up</h2>} />
+          <Route exact path="/signup" render={() => <SignUpForm />} />
           {/* 404 Route */}
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
