@@ -1,12 +1,12 @@
 import React from "react";
 // css link
-import styles from '../styles/NavBar.module.css'
+import styles from "../styles/NavBar.module.css";
 // react-bootstrap components
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 // react-router-dom NavLink
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -18,14 +18,30 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
         {/* add track button here */}
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className={styles.Toggler} />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
-            <NavLink to="/" activeClassName={styles.Active} exact>
+            <NavLink
+              to="/"
+              className={styles.Link}
+              activeClassName={styles.Active}
+              exact
+            >
               <i class="fa-solid fa-music"></i>Discover
             </NavLink>
-            <NavLink to="/signin" activeClassName={styles.Active}>
+            <NavLink
+              to="/signin"
+              className={styles.Link}
+              activeClassName={styles.Active}
+            >
               <i class="fa-solid fa-arrow-right-to-bracket"></i>Sign In
+            </NavLink>
+            <NavLink
+              to="/signup"
+              className={styles.Link}
+              activeClassName={styles.Active}
+            >
+              <i class="fa-solid fa-user-plus"></i>Sign Up
             </NavLink>
             {/* logged in/out icons here */}
           </Nav>

@@ -7,6 +7,17 @@
     color: #FEA520;
 }
 
+.Link {
+    font-weight: 700;
+    font-style: italic;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.Toggler {
+    padding: 4px;
+}
+
 h1 {
     font-weight: 900;
     text-transform: uppercase;
