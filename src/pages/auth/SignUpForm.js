@@ -1,6 +1,7 @@
 import React from "react";
 // css link
 import styles from "../../styles/SignInUpForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
 // react-bootstrap components
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -36,7 +37,7 @@ const SignUpForm = () => {
             />
           </Form.Group>
 
-          <Button type="submit">Sign up</Button>
+          <Button type="submit" className={`${btnStyles.Btn} ${btnStyles.Right}`}>Sign up</Button>
         </Form>
       </Container>
     </div>
