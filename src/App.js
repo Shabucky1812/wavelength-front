@@ -6,6 +6,8 @@ import NavBar from "./components/NavBar";
 import Container from "react-bootstrap/Container";
 // react-router-dom
 import { Switch, Route } from "react-router-dom";
+// axiosDefaults
+import "./api/axiosDefaults";
 
 function App() {
   return (
