@@ -3,6 +3,7 @@ import styles from "./App.module.css";
 // components
 import NavBar from "./components/NavBar";
 // auth pages
+import SignInForm from "./pages/auth/SignInForm";
 import SignUpForm from "./pages/auth/SignUpForm";
 // react-bootstrap
 import Container from "react-bootstrap/Container";
@@ -18,7 +19,7 @@ function App() {
       <Container className={styles.Main}>
         <Switch>
           <Route exact path="/" render={() => <h2>discover</h2>} />
-          <Route exact path="/signin" render={() => <h2>sign in</h2>} />
+          <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           {/* 404 Route */}
           <Route render={() => <p>Page not found!</p>} />

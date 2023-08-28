@@ -40,7 +40,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className={styles.Background}>
+    <div className={styles.SignUpBackground}>
       <Container className={styles.FormContainer}>
         <h2 className={styles.Title}>Create an Account</h2>
         <hr />
