@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 // css link
 import styles from "../styles/NavBar.module.css";
 // react-bootstrap components
@@ -7,8 +7,30 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 // react-router-dom NavLink
 import { NavLink } from "react-router-dom";
+import { CurrentUserContext } from "../App";
 
 const NavBar = () => {
+  const currentUser = useContext(CurrentUserContext);
+  const loggedInIcons = <>{currentUser?.username}</>
+  const loggedOutIcons = (
+    <>
+      <NavLink
+        to="/signin"
+        className={styles.Link}
+        activeClassName={styles.Active}
+      >
+        <i class="fa-solid fa-arrow-right-to-bracket"></i>Sign In
+      </NavLink>
+      <NavLink
+        to="/signup"
+        className={styles.Link}
+        activeClassName={styles.Active}
+      >
+        <i class="fa-solid fa-user-plus"></i>Sign Up
+      </NavLink>
+    </>
+  );
+
   return (
     <Navbar className={styles.NavBar} expand="md" fixed="top" variant="dark">
       <Container>
@@ -18,7 +40,10 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
         {/* add track button here */}
-        <Navbar.Toggle aria-controls="basic-navbar-nav" className={styles.Toggler} />
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          className={styles.Toggler}
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
             <NavLink
@@ -29,21 +54,7 @@ const NavBar = () => {
             >
               <i class="fa-solid fa-music"></i>Discover
             </NavLink>
-            <NavLink
-              to="/signin"
-              className={styles.Link}
-              activeClassName={styles.Active}
-            >
-              <i class="fa-solid fa-arrow-right-to-bracket"></i>Sign In
-            </NavLink>
-            <NavLink
-              to="/signup"
-              className={styles.Link}
-              activeClassName={styles.Active}
-            >
-              <i class="fa-solid fa-user-plus"></i>Sign Up
-            </NavLink>
-            {/* logged in/out icons here */}
+            {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
       </Container>
