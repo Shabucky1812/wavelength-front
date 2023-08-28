@@ -9,7 +9,7 @@
 .SignInBackground {
     width: 100%;
     min-height: 600px;
-    background-image: url('../assets/signup-background.jpg');
+    background-image: url('../assets/signin-background.jpg');
     background-size: cover;
     padding: 6vh 10%;
 }
