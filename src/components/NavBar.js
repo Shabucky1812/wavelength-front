@@ -8,6 +8,7 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 // react-router-dom NavLink
 import { NavLink } from "react-router-dom";
+import Avatar from "./Avatar";
 
 const NavBar = () => {
   const currentUser = useCurrentUser()
@@ -39,7 +40,7 @@ const NavBar = () => {
         to={`/profiles/${currentUser?.profile_id}`}
         className={styles.Link}
       >
-        profile image here
+        <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
       </NavLink>
     </>
   )
@@ -64,7 +65,7 @@ const NavBar = () => {
   );
 
   return (
-    <Navbar className={styles.NavBar} expand="md" fixed="top" variant="dark">
+    <Navbar className={styles.NavBar} expand="lg" fixed="top" variant="dark">
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
