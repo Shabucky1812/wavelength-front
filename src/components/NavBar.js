@@ -11,7 +11,39 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const currentUser = useCurrentUser()
-  const loggedInIcons = <>{currentUser?.username}</>
+
+  const loggedInIcons = (
+    <>
+        <NavLink
+        to="/feed"
+        className={styles.Link}
+        activeClassName={styles.Active}
+      >
+        <i class="fa-solid fa-heart"></i>Feed
+      </NavLink>
+      <NavLink
+        to="/search"
+        className={styles.Link}
+        activeClassName={styles.Active}
+      >
+        <i class="fa-solid fa-magnifying-glass"></i>Search
+      </NavLink>
+      <NavLink
+        to="/"
+        className={styles.Link}
+        onClick={() => {}}
+      >
+        <i class="fa-regular fa-circle-xmark"></i>Sign Out
+      </NavLink>
+      <NavLink
+        to={`/profiles/${currentUser?.profile_id}`}
+        className={styles.Link}
+      >
+        profile image here
+      </NavLink>
+    </>
+  )
+
   const loggedOutIcons = (
     <>
       <NavLink
