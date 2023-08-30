@@ -31,6 +31,18 @@ const NavBar = () => {
     }
   };
 
+  const shareTrackIcon = (
+    <>
+      <NavLink
+        to="/tracks/create"
+        className={`${styles.Link} ${styles.ShareTrack}`}
+        activeClassName={styles.Active}
+      >
+        <i class="fa-solid fa-plus fa-lg"></i>Share Track
+      </NavLink>
+    </>
+  )
+
   const loggedInIcons = (
     <>
       <NavLink
@@ -86,13 +98,13 @@ const NavBar = () => {
       fixed="top"
       variant="dark"
     >
-      <Container>
+      <Container className={styles.Container}>
         <NavLink to="/">
           <Navbar.Brand>
             <h1>Wavelength</h1>
           </Navbar.Brand>
         </NavLink>
-        {/* add track button here */}
+        {currentUser && shareTrackIcon}
         <Navbar.Toggle
           onClick={() => setExpanded(!expanded)}
           ref={ref}

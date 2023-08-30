@@ -108,7 +108,7 @@ be structured and plan how a user would traverse through the site.
 
 3. Track Page:
     ![Template wireframes for track page on desktop and mobile.](/documentation/wireframes/track-page.png)  
-    This user will be brought to this page upon clicking on an individual track. They are shown the track in more detial as well as the reviews for the track left by other users. This is also where they will be able to edit or add their review.
+    This user will be brought to this page upon clicking on an individual track. They are shown the track in more detail as well as the reviews for the track left by other users. This is also where they will be able to edit or add their review.
 
 4. Profile Page:
     ![Template wireframes for profile page on desktop and mobile.](/documentation/wireframes/profile-page.png)  
