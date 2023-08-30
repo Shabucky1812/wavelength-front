@@ -1,6 +1,9 @@
 import React from "react";
-import axios from "axios"
-import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
+import axios from "axios";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
 // css link
 import styles from "../styles/NavBar.module.css";
 // custom components
@@ -11,23 +14,26 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 // react-router-dom NavLink
 import { NavLink } from "react-router-dom";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {
-  const currentUser = useCurrentUser()
-  const setCurrentUser = useSetCurrentUser()
+  const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
+
+  const {expanded, setExpanded, ref} = useClickOutsideToggle()
 
   const handleSignOut = async () => {
     try {
-      await axios.post('/dj-rest-auth/logout/')
-      setCurrentUser(null)
-    } catch(err) {
+      await axios.post("/dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
       // console.log(err)
     }
-  }
+  };
 
   const loggedInIcons = (
     <>
-        <NavLink
+      <NavLink
         to="/feed"
         className={styles.Link}
         activeClassName={styles.Active}
@@ -41,11 +47,7 @@ const NavBar = () => {
       >
         <i class="fa-solid fa-magnifying-glass"></i>Search
       </NavLink>
-      <NavLink
-        to="/"
-        className={styles.Link}
-        onClick={handleSignOut}
-      >
+      <NavLink to="/" className={styles.Link} onClick={handleSignOut}>
         <i class="fa-regular fa-circle-xmark"></i>Sign Out
       </NavLink>
       <NavLink
@@ -55,7 +57,7 @@ const NavBar = () => {
         <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
       </NavLink>
     </>
-  )
+  );
 
   const loggedOutIcons = (
     <>
@@ -77,7 +79,13 @@ const NavBar = () => {
   );
 
   return (
-    <Navbar className={styles.NavBar} expand="lg" fixed="top" variant="dark">
+    <Navbar
+      expanded={expanded}
+      className={styles.NavBar}
+      expand="lg"
+      fixed="top"
+      variant="dark"
+    >
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
@@ -86,6 +94,8 @@ const NavBar = () => {
         </NavLink>
         {/* add track button here */}
         <Navbar.Toggle
+          onClick={() => setExpanded(!expanded)}
+          ref={ref}
           aria-controls="basic-navbar-nav"
           className={styles.Toggler}
         />
