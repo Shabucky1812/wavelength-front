@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+// css links
+import btnStyles from "../../styles/Button.module.css"
 // react-bootstrap components
 import Form from "react-bootstrap/Form";
-import Asset from "../components/Asset";
+import Image from "react-bootstrap/Image"
 
 const TrackCreateForm = () => {
   const [trackData, setTrackData] = useState({
@@ -18,6 +20,16 @@ const TrackCreateForm = () => {
       ...trackData,
       [event.target.name]: event.target.value,
     });
+  };
+
+  const handleChangeCoverArt = (event) => {
+    if (event.target.files.length) {
+      URL.revokeObjectURL(cover_art);
+      setTrackData({
+        ...trackData,
+        cover_art: URL.createObjectURL(event.target.files[0]),
+      });
+    }
   };
 
   return (
@@ -41,8 +53,26 @@ const TrackCreateForm = () => {
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label htmlFor="image-upload"><Asset message={"Upload Cover Art"} /></Form.Label>
-        <Form.File id="image-upload" accept="image/*" />
+        {cover_art ? (
+          <>
+            <figure>
+              <Image src={cover_art} alt="example track cover art" />
+            </figure>
+            <Form.Label className={btnStyles.Btn} htmlFor="image-upload">
+              Change Image
+            </Form.Label>
+          </>
+        ) : (
+          <Form.Label className={btnStyles.Btn} htmlFor="image-upload">
+            Add Image
+          </Form.Label>
+        )}
+        <Form.File
+          id="image-upload"
+          accept="image/*"
+          className="d-none"
+          onChange={handleChangeCoverArt}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Genre</Form.Label>

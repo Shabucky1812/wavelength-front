@@ -11,7 +11,7 @@ import Container from "react-bootstrap/Container";
 import { Switch, Route } from "react-router-dom";
 // axiosDefaults
 import "./api/axiosDefaults";
-import TrackCreateForm from "./pages/TrackCreateForm";
+import TrackCreateForm from "./pages/tracks/TrackCreateForm";
 
 function App() {
   return (
