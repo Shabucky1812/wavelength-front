@@ -3,36 +3,55 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 
 const TrackCreateForm = () => {
-  const [postData, setPostData] = useState({
+  const [trackData, setTrackData] = useState({
     title: "",
     artist: "",
     cover_art: "",
-    genre: "",
+    genre: 0,
     opinion: "",
   });
-  const { title, artist, cover_art, genre, opinion } = postData;
+  const { title, artist, cover_art, genre, opinion } = trackData;
+
+  const handleChange = (event) => {
+    setTrackData({
+      ...trackData,
+      [event.target.name]: event.target.value,
+    });
+  };
 
   return (
     <Form>
       <Form.Group>
         <Form.Label>Title</Form.Label>
-        <Form.Control type="text" name="title" />
+        <Form.Control
+          type="text"
+          name="title"
+          value={title}
+          onChange={handleChange}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Artist</Form.Label>
-        <Form.Control type="text" name="artist" />
+        <Form.Control
+          type="text"
+          name="artist"
+          value={artist}
+          onChange={handleChange}
+        />
       </Form.Group>
       <Form.Group>
-        <Form.Label
-          htmlFor="image-upload"
-        >
-          asset
-        </Form.Label>
+        <Form.Label htmlFor="image-upload">asset</Form.Label>
         <Form.File id="image-upload" accept="image/*" />
       </Form.Group>
       <Form.Group>
         <Form.Label>Genre</Form.Label>
-        <Form.Control as="select" custom name="genre">
+        <Form.Control
+          as="select"
+          custom
+          name="genre"
+          value={genre}
+          onChange={handleChange}
+        >
           <option value={0}>No genre</option>
           <option value={1}>Pop</option>
           <option value={2}>Rock</option>
@@ -57,6 +76,8 @@ const TrackCreateForm = () => {
           as="textarea"
           rows={3}
           name="opinion"
+          value={opinion}
+          onChange={handleChange}
         />
       </Form.Group>
     </Form>
