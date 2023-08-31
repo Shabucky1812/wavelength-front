@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // react-bootstrap components
 import Form from "react-bootstrap/Form";
+import Asset from "../components/Asset";
 
 const TrackCreateForm = () => {
   const [trackData, setTrackData] = useState({
@@ -40,7 +41,7 @@ const TrackCreateForm = () => {
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label htmlFor="image-upload">asset</Form.Label>
+        <Form.Label htmlFor="image-upload"><Asset message={"Upload Cover Art"} /></Form.Label>
         <Form.File id="image-upload" accept="image/*" />
       </Form.Group>
       <Form.Group>
