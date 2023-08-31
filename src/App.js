@@ -11,6 +11,7 @@ import Container from "react-bootstrap/Container";
 import { Switch, Route } from "react-router-dom";
 // axiosDefaults
 import "./api/axiosDefaults";
+import TrackCreateForm from "./pages/TrackCreateForm";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/" render={() => <h2>discover</h2>} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route exact path="/tracks/create" render={() => <TrackCreateForm />} />
           {/* 404 Route */}
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
