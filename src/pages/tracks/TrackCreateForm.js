@@ -7,8 +7,11 @@ import btnStyles from "../../styles/Button.module.css";
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert"
 
 const TrackCreateForm = () => {
+  const [errors, setErrors] = useState({});
+
   const [trackData, setTrackData] = useState({
     title: "",
     artist: "",
@@ -52,12 +55,16 @@ const TrackCreateForm = () => {
       const { data } = await axiosReq.post("/tracks/", formData);
       history.push(`/tracks/${data.id}/`);
     } catch (err) {
-      console.log(err)
+      // console.log(err)
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
     }
   };
 
   return (
     <Form onSubmit={handleSubmit}>
+      {/* title field */}
       <Form.Group>
         <Form.Label>Title</Form.Label>
         <Form.Control
@@ -67,6 +74,13 @@ const TrackCreateForm = () => {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      {/* artist field */}
       <Form.Group>
         <Form.Label>Artist</Form.Label>
         <Form.Control
@@ -76,6 +90,13 @@ const TrackCreateForm = () => {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors.artist?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      {/* cover art field */}
       <Form.Group>
         {cover_art ? (
           <>
@@ -99,6 +120,13 @@ const TrackCreateForm = () => {
           ref={imageInput}
         />
       </Form.Group>
+      {errors.cover_art?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      {/* genre field */}
       <Form.Group>
         <Form.Label>Genre</Form.Label>
         <Form.Control
@@ -126,6 +154,13 @@ const TrackCreateForm = () => {
           <option value={15}>Trap</option>
         </Form.Control>
       </Form.Group>
+      {errors.genre?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      {/* opinion field */}
       <Form.Group>
         <Form.Label>Opinion</Form.Label>
         <Form.Control
@@ -136,6 +171,12 @@ const TrackCreateForm = () => {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors.opinion?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
       <Button onClick={() => history.goBack()}>Cancel</Button>
       <Button type="submit">Share</Button>
     </Form>
