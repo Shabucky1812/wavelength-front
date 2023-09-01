@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { axiosReq } from "../../api/axiosDefaults";
 // css links
-import btnStyles from "../../styles/Button.module.css"
+import btnStyles from "../../styles/Button.module.css";
 // react-bootstrap components
 import Form from "react-bootstrap/Form";
-import Image from "react-bootstrap/Image"
+import Image from "react-bootstrap/Image";
+import Button from "react-bootstrap/Button";
 
 const TrackCreateForm = () => {
   const [trackData, setTrackData] = useState({
@@ -14,6 +17,9 @@ const TrackCreateForm = () => {
     opinion: "",
   });
   const { title, artist, cover_art, genre, opinion } = trackData;
+
+  const imageInput = useRef(null);
+  const history = useHistory();
 
   const handleChange = (event) => {
     setTrackData({
@@ -32,8 +38,26 @@ const TrackCreateForm = () => {
     }
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("artist", artist);
+    formData.append("cover_art", imageInput.current.files[0]);
+    formData.append("genre", genre);
+    formData.append("opinion", opinion);
+
+    try {
+      const { data } = await axiosReq.post("/tracks/", formData);
+      history.push(`/tracks/${data.id}/`);
+    } catch (err) {
+      console.log(err)
+    }
+  };
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Form.Group>
         <Form.Label>Title</Form.Label>
         <Form.Control
@@ -72,6 +96,7 @@ const TrackCreateForm = () => {
           accept="image/*"
           className="d-none"
           onChange={handleChangeCoverArt}
+          ref={imageInput}
         />
       </Form.Group>
       <Form.Group>
@@ -111,6 +136,8 @@ const TrackCreateForm = () => {
           onChange={handleChange}
         />
       </Form.Group>
+      <Button onClick={() => history.goBack()}>Cancel</Button>
+      <Button type="submit">Share</Button>
     </Form>
   );
 };
