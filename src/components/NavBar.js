@@ -38,7 +38,7 @@ const NavBar = () => {
         className={`${styles.Link} ${styles.ShareTrack}`}
         activeClassName={styles.Active}
       >
-        <i class="fa-solid fa-plus fa-lg"></i>Share Track
+        <i className="fa-solid fa-plus fa-lg"></i>Share Track
       </NavLink>
     </>
   )
@@ -50,17 +50,17 @@ const NavBar = () => {
         className={styles.Link}
         activeClassName={styles.Active}
       >
-        <i class="fa-solid fa-heart"></i>Feed
+        <i className="fa-solid fa-heart"></i>Feed
       </NavLink>
       <NavLink
         to="/search"
         className={styles.Link}
         activeClassName={styles.Active}
       >
-        <i class="fa-solid fa-magnifying-glass"></i>Search
+        <i className="fa-solid fa-magnifying-glass"></i>Search
       </NavLink>
       <NavLink to="/" className={styles.Link} onClick={handleSignOut}>
-        <i class="fa-regular fa-circle-xmark"></i>Sign Out
+        <i className="fa-regular fa-circle-xmark"></i>Sign Out
       </NavLink>
       <NavLink
         to={`/profiles/${currentUser?.profile_id}`}
@@ -78,14 +78,14 @@ const NavBar = () => {
         className={styles.Link}
         activeClassName={styles.Active}
       >
-        <i class="fa-solid fa-arrow-right-to-bracket"></i>Sign In
+        <i className="fa-solid fa-arrow-right-to-bracket"></i>Sign In
       </NavLink>
       <NavLink
         to="/signup"
         className={styles.Link}
         activeClassName={styles.Active}
       >
-        <i class="fa-solid fa-user-plus"></i>Sign Up
+        <i className="fa-solid fa-user-plus"></i>Sign Up
       </NavLink>
     </>
   );
@@ -119,7 +119,7 @@ const NavBar = () => {
               activeClassName={styles.Active}
               exact
             >
-              <i class="fa-solid fa-music"></i>Discover
+              <i className="fa-solid fa-music"></i>Discover
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
