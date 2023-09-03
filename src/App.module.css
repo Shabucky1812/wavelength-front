@@ -26,3 +26,8 @@ a:hover {
     color: #F18F01; 
     text-decoration: none;
 }
+
+hr {
+    border-top: 2px dashed #08B1C4;
+    width: 100%;
+}

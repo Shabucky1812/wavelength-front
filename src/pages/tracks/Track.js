@@ -15,7 +15,6 @@ const Track = (props) => {
     cover_art,
     created_at,
     genre,
-    genre_id,
     id,
     opinion,
     owner,
@@ -40,7 +39,7 @@ const Track = (props) => {
               <span className={styles.HeaderText}>{owner}</span>
             </Link>
             <div className={styles.RightHeader}>
-              <span className={styles.HeaderText}>Created {created_at}</span>
+              <span className={styles.HeaderText}>Shared {created_at}</span>
               {is_owner && trackPage && "..."}
             </div>
           </Col>
@@ -48,11 +47,23 @@ const Track = (props) => {
       </Card.Header>
       <Card.Body>
         <Row>
-          <Col xs={12} md={6}>
-            stuff here
+          <Col xs={12} md={6} className={`${styles.InfoContainer}`}>
+            <div>
+              <Card.Title className={styles.Title}>
+                {title} - {artist}
+              </Card.Title>
+              <Card.Subtitle className={styles.Subtitle}>{genre}</Card.Subtitle>
+            </div>
+            <hr />
+            <Card.Text>{opinion}</Card.Text>
+            <hr />
+            <Card.Text>
+              Score:{" "}
+              <span>{average_score ? average_score : "Not yet scored"}</span>
+            </Card.Text>
           </Col>
           <Col xs={12} md={6}>
-            <Card.Img className={styles.CoverArt} src={cover_art} />
+            <Card.Img className={styles.CoverArt} src={cover_art} alt={title} />
           </Col>
         </Row>
       </Card.Body>

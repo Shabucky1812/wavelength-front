@@ -20,6 +20,28 @@
     padding-top: 15px;
 }
 
+.InfoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    max-height: 420px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.Title {
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+.Subtitle {
+    font-weight: 700;
+    font-size: 1.25rem;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
 .CoverArt {
     max-height: 500px;
     border-radius: 10px;
