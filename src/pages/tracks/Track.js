@@ -24,6 +24,7 @@ const Track = (props) => {
     review_id,
     reviews_count,
     title,
+    trackPage,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -31,13 +32,24 @@ const Track = (props) => {
 
   return (
     <Card className={styles.CardBackground}>
+      <Card.Header className={styles.Header}>
+        <Row>
+          <Col xs={12}>
+            <Link to={`/profiles/${profile_id}`}>
+              <Avatar src={profile_image} height={60} />
+              <span className={styles.HeaderText}>{owner}</span>
+            </Link>
+            <div className={styles.RightHeader}>
+              <span className={styles.HeaderText}>Created {created_at}</span>
+              {is_owner && trackPage && "..."}
+            </div>
+          </Col>
+        </Row>
+      </Card.Header>
       <Card.Body>
         <Row>
           <Col xs={12} md={6}>
-            <Link to={`/profiles/${profile_id}`}>
-              <Avatar src={profile_image} height={60} />
-              {owner}
-            </Link>
+            stuff here
           </Col>
           <Col xs={12} md={6}>
             <Card.Img className={styles.CoverArt} src={cover_art} />

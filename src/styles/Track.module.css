@@ -1,7 +1,23 @@
 .CardBackground {
     background-color: #262C29;
-    border: solid 1px #08B1C4;
-    border-radius: 4px;
+    border: solid 4px #08B1C4;
+    border-radius: 8px;
+}
+
+.Header {
+    border: none;
+    background-color: #08B1C4;
+}
+
+.HeaderText {
+    color: #2E3532;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.RightHeader {
+    float: right;
+    padding-top: 15px;
 }
 
 .CoverArt {

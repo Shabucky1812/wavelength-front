@@ -25,7 +25,7 @@ const TrackPage = () => {
 
   return (
     <div>
-      <Track {...track.results[0]} />
+      <Track {...track.results[0]} trackPage />
       <p>Create/Edit Review Form</p>
       <p>Review List</p>
     </div>
