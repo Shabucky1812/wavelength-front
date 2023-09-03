@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
+import Track from "./Track";
 
 const TrackPage = () => {
   const { id } = useParams();
@@ -24,7 +25,7 @@ const TrackPage = () => {
 
   return (
     <div>
-      <p>Track Component</p>
+      <Track {...track.results[0]} />
       <p>Create/Edit Review Form</p>
       <p>Review List</p>
     </div>

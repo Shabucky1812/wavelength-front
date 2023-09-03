@@ -1,0 +1,10 @@
+.CardBackground {
+    background-color: #262C29;
+    border: solid 1px #08B1C4;
+    border-radius: 4px;
+}
+
+.CoverArt {
+    max-height: 500px;
+    border-radius: 10px;
+}
