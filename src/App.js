@@ -39,7 +39,7 @@ function App() {
             render={() => (
               <TracksPage
                 message="No results found. Follow a user/adjust the search query"
-                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+                filter={`owner__followed__owner__profile=${profile_id}&`}
               />
             )}
           />

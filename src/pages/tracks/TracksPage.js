@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { axiosReq } from "../../api/axiosDefaults";
 // react-bootstrap components
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
-import { axiosReq } from "../../api/axiosDefaults";
+import Container from "react-bootstrap/Container";
+// custom components
+import Track from "./Track";
+import Asset from "../../components/Asset"
 
 const TracksPage = ({message, filter=""}) => {
   const [tracks, setTracks] = useState({results: []})
@@ -40,13 +44,19 @@ const TracksPage = ({message, filter=""}) => {
           {hasLoaded ? (
             <>
               {tracks.results.length ? (
-                console.log("show tracks")
+                tracks.results.map(track => (
+                  <Track key={track.id} {...track} />
+                ))
               ) : (
-                console.log("no results msg")
+                <Container>
+                  <Asset message={message} />
+                </Container>
               )}
             </>
           ) : (
-            console.log("spinner")
+            <Container>
+              <Asset spinner />
+            </Container>
           )}
         </Col>
       </Row>
