@@ -60,10 +60,13 @@ const Track = (props) => {
             <Card.Text>
               Score:{" "}
               <span>{average_score ? average_score : "Not yet scored"}</span>
+              <p><i className="fa-regular fa-comment-dots"></i>{reviews_count} reviews</p>
             </Card.Text>
           </Col>
           <Col xs={12} md={6}>
-            <Card.Img className={styles.CoverArt} src={cover_art} alt={title} />
+            <Link to={`/tracks/${id}`} className={styles.CoverArtLink}>
+              <Card.Img className={styles.CoverArt} src={cover_art} alt={title} />
+            </Link>
           </Col>
         </Row>
       </Card.Body>
