@@ -1,3 +1,4 @@
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 // app css
 import styles from "./App.module.css";
 // components
@@ -8,6 +9,7 @@ import SignUpForm from "./pages/auth/SignUpForm";
 // track pages
 import TrackCreateForm from "./pages/tracks/TrackCreateForm";
 import TrackPage from "./pages/tracks/TrackPage";
+import TracksPage from "./pages/tracks/TracksPage";
 // react-bootstrap
 import Container from "react-bootstrap/Container";
 // react-router-dom
@@ -16,15 +18,38 @@ import { Switch, Route } from "react-router-dom";
 import "./api/axiosDefaults";
 
 function App() {
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
+
   return (
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route exact path="/" render={() => <h2>discover</h2>} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <TracksPage message="No results found. Adjust the search query." />
+            )}
+          />
+          <Route
+            exact
+            path="/feed"
+            render={() => (
+              <TracksPage
+                message="No results found. Follow a user/adjust the search query"
+                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+              />
+            )}
+          />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
-          <Route exact path="/tracks/create" render={() => <TrackCreateForm />} />
+          <Route
+            exact
+            path="/tracks/create"
+            render={() => <TrackCreateForm />}
+          />
           <Route exact path="/tracks/:id" render={() => <TrackPage />} />
           {/* 404 Route */}
           <Route render={() => <p>Page not found!</p>} />
