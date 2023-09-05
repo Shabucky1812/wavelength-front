@@ -13,6 +13,7 @@ import Asset from "../../components/Asset";
 const TracksPage = ({ message, filter = "" }) => {
   const [tracks, setTracks] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [genre, setGenre] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const { pathname } = useLocation();
 
@@ -20,7 +21,7 @@ const TracksPage = ({ message, filter = "" }) => {
     const fetchPosts = async () => {
       try {
         const { data } = await axiosReq.get(
-          `/tracks/?${filter}search=${searchQuery}`
+          `/tracks/?${filter}genre_id=${genre}&search=${searchQuery}`
         );
         setTracks(data);
         setHasLoaded(true);
@@ -36,7 +37,7 @@ const TracksPage = ({ message, filter = "" }) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, pathname, searchQuery]);
+  }, [filter, pathname, searchQuery, genre]);
 
   return (
     <>
@@ -53,7 +54,32 @@ const TracksPage = ({ message, filter = "" }) => {
           </Form>
         </Col>
         <Col xs={6} md={4}>
-          Filter
+          <span>Genre Filter:</span>
+          <Form onSubmit={(event) => event.preventDefault()}>
+            <Form.Control
+              as="select"
+              custom
+              value={genre}
+              onChange={(event) => setGenre(event.target.value)}
+            >
+              <option value={""}>No filter</option>
+              <option value={1}>Pop</option>
+              <option value={2}>Rock</option>
+              <option value={3}>Hip-Hop</option>
+              <option value={4}>Country</option>
+              <option value={5}>R&B</option>
+              <option value={6}>Folk</option>
+              <option value={7}>Jazz</option>
+              <option value={8}>Metal</option>
+              <option value={9}>EDM</option>
+              <option value={10}>Soul</option>
+              <option value={11}>Funk</option>
+              <option value={12}>Reggae</option>
+              <option value={13}>Punk</option>
+              <option value={14}>Classical</option>
+              <option value={15}>Trap</option>
+            </Form.Control>
+          </Form>
         </Col>
       </Row>
       <Row>
