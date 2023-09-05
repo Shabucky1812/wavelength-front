@@ -19,7 +19,9 @@ const TracksPage = ({ message, filter = "" }) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data } = await axiosReq.get(`/tracks/?${filter}search=${searchQuery}`);
+        const { data } = await axiosReq.get(
+          `/tracks/?${filter}search=${searchQuery}`
+        );
         setTracks(data);
         setHasLoaded(true);
       } catch (err) {
@@ -28,7 +30,12 @@ const TracksPage = ({ message, filter = "" }) => {
     };
 
     setHasLoaded(false);
-    fetchPosts();
+    const timer = setTimeout(() => {
+      fetchPosts();
+    }, 500);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [filter, pathname, searchQuery]);
 
   return (
