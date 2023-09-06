@@ -1,5 +1,8 @@
-import React, { useRef, useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  useHistory,
+  useParams,
+} from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 // css links
 import btnStyles from "../../styles/Button.module.css";
@@ -9,7 +12,7 @@ import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 
-const TrackCreateForm = () => {
+const TrackEditForm = () => {
   const [errors, setErrors] = useState({});
 
   const [trackData, setTrackData] = useState({
@@ -23,6 +26,24 @@ const TrackCreateForm = () => {
 
   const imageInput = useRef(null);
   const history = useHistory();
+  const { id } = useParams();
+
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get(`/tracks/${id}`);
+        const { title, artist, cover_art, genre_id, opinion, is_owner } = data;
+
+        is_owner
+          ? setTrackData({ title, artist, cover_art, genre_id, opinion })
+          : history.push("/");
+      } catch (err) {
+        // console.log(err)
+      }
+    };
+
+    handleMount();
+  }, [history, id]);
 
   const handleChange = (event) => {
     setTrackData({
@@ -47,13 +68,15 @@ const TrackCreateForm = () => {
 
     formData.append("title", title);
     formData.append("artist", artist);
-    formData.append("cover_art", imageInput.current.files[0]);
+    if (imageInput?.current?.files[0]) {
+      formData.append("cover_art", imageInput.current.files[0]);
+    }
     formData.append("genre_id", genre_id);
     formData.append("opinion", opinion);
 
     try {
-      const { data } = await axiosReq.post("/tracks/", formData);
-      history.push(`/tracks/${data.id}/`);
+      await axiosReq.put(`/tracks/${id}/`, formData);
+      history.push(`/tracks/${id}/`);
     } catch (err) {
       // console.log(err)
       if (err.response?.status !== 401) {
@@ -98,20 +121,12 @@ const TrackCreateForm = () => {
 
       {/* cover art field */}
       <Form.Group>
-        {cover_art ? (
-          <>
-            <figure>
-              <Image src={cover_art} alt="example track cover art" />
-            </figure>
-            <Form.Label className={btnStyles.Btn} htmlFor="image-upload">
-              Change Image
-            </Form.Label>
-          </>
-        ) : (
-          <Form.Label className={btnStyles.Btn} htmlFor="image-upload">
-            Add Image
-          </Form.Label>
-        )}
+        <figure>
+          <Image src={cover_art} alt="example track cover art" />
+        </figure>
+        <Form.Label className={btnStyles.Btn} htmlFor="image-upload">
+          Change Image
+        </Form.Label>
         <Form.File
           id="image-upload"
           accept="image/*"
@@ -126,7 +141,7 @@ const TrackCreateForm = () => {
         </Alert>
       ))}
 
-      {/* genre_id field */}
+      {/* genre field */}
       <Form.Group>
         <Form.Label>Genre</Form.Label>
         <Form.Control
@@ -178,9 +193,9 @@ const TrackCreateForm = () => {
       ))}
 
       <Button onClick={() => history.goBack()}>Cancel</Button>
-      <Button type="submit">Share</Button>
+      <Button type="submit">Save</Button>
     </Form>
   );
 };
 
-export default TrackCreateForm;
+export default TrackEditForm;

@@ -14,7 +14,6 @@ const TrackPage = () => {
           axiosReq.get(`/tracks/${id}`)
         ])
         setTrack({results: [track]})
-        console.log(track)
       } catch(err) {
         // console.log(err)
       }

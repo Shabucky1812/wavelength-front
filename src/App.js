@@ -8,6 +8,7 @@ import SignInForm from "./pages/auth/SignInForm";
 import SignUpForm from "./pages/auth/SignUpForm";
 // track pages
 import TrackCreateForm from "./pages/tracks/TrackCreateForm";
+import TrackEditForm from "./pages/tracks/TrackEditForm";
 import TrackPage from "./pages/tracks/TrackPage";
 import TracksPage from "./pages/tracks/TracksPage";
 // react-bootstrap
@@ -50,6 +51,7 @@ function App() {
             path="/tracks/create"
             render={() => <TrackCreateForm />}
           />
+          <Route exact path="/tracks/:id/edit" render={() => <TrackEditForm />} />
           <Route exact path="/tracks/:id" render={() => <TrackPage />} />
           {/* 404 Route */}
           <Route render={() => <p>Page not found!</p>} />
