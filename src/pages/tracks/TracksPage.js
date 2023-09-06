@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
+import { fetchMoreData } from "../../utils/utils";
 // react-bootstrap components
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -9,6 +10,7 @@ import Form from "react-bootstrap/Form";
 // custom components
 import Track from "./Track";
 import Asset from "../../components/Asset";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const TracksPage = ({ message, filter = "" }) => {
   const [tracks, setTracks] = useState({ results: [] });
@@ -87,9 +89,15 @@ const TracksPage = ({ message, filter = "" }) => {
           {hasLoaded ? (
             <>
               {tracks.results.length ? (
-                tracks.results.map((track) => (
-                  <Track key={track.id} {...track} />
-                ))
+                <InfiniteScroll
+                  children={tracks.results.map((track) => (
+                    <Track key={track.id} {...track} />
+                  ))}
+                  dataLength={tracks.results.length}
+                  loader={<Asset spinner />}
+                  hasMore={!!tracks.next}
+                  next={() => fetchMoreData(tracks, setTracks)}
+                />
               ) : (
                 <Container>
                   <Asset message={message} />
