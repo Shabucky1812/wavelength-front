@@ -6,10 +6,11 @@ import styles from "../../styles/Track.module.css";
 import { MoreDropdown } from "../../components/MoreDropdown";
 // react-bootstrap components
 import Card from "react-bootstrap/Card";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Avatar from "../../components/Avatar";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Track = (props) => {
   const {
@@ -31,6 +32,20 @@ const Track = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/tracks/${id}/edit`)
+  }
+
+  const handleDelete = async () => {
+    try {
+        await axiosRes.delete(`/tracks/${id}`)
+        history.goBack()
+    } catch {
+        // console.log()
+    }
+  }
 
   return (
     <Card className={styles.CardBackground}>
@@ -43,7 +58,7 @@ const Track = (props) => {
             </Link>
             <div className={styles.RightHeader}>
               <span className={styles.HeaderText}>Shared {created_at}</span>
-              {is_owner && trackPage && <MoreDropdown />}
+              {is_owner && trackPage && <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />}
             </div>
           </Col>
         </Row>

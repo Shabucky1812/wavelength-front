@@ -14,14 +14,14 @@ const DropdownIcon = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
-export const MoreDropdown = () => {
+export const MoreDropdown = ({handleEdit, handleDelete}) => {
   return (
     <Dropdown>
       <Dropdown.Toggle as={DropdownIcon}/>
 
-      <Dropdown.Menu>
-        <Dropdown.Item onClick={() => {}}>Edit Track</Dropdown.Item>
-        <Dropdown.Item onClick={() => {}}>Delete Track</Dropdown.Item>
+      <Dropdown.Menu popperConfig={{ strategy: "fixed" }}>
+        <Dropdown.Item onClick={handleEdit}>Edit Track</Dropdown.Item>
+        <Dropdown.Item onClick={handleDelete}>Delete Track</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );
