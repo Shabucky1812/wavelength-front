@@ -2,11 +2,14 @@ import React from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 // css link
 import styles from "../../styles/Track.module.css";
+// custom components
+import { MoreDropdown } from "../../components/MoreDropdown";
 // react-bootstrap components
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Avatar from "../../components/Avatar";
-import { Col, Row } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 const Track = (props) => {
   const {
@@ -40,7 +43,7 @@ const Track = (props) => {
             </Link>
             <div className={styles.RightHeader}>
               <span className={styles.HeaderText}>Shared {created_at}</span>
-              {is_owner && trackPage && "..."}
+              {is_owner && trackPage && <MoreDropdown />}
             </div>
           </Col>
         </Row>
