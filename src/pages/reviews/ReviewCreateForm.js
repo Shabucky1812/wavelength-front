@@ -6,6 +6,7 @@ import Avatar from "../../components/Avatar";
 // react-bootstrap components
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
 
 function ReviewCreateForm(props) {
   const { track, setTrack, setReviews, profileImage, profile_id } = props;
@@ -15,6 +16,7 @@ function ReviewCreateForm(props) {
   });
 
   const { opinion, score } = reviewData;
+  const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
     setReviewData({
@@ -50,12 +52,16 @@ function ReviewCreateForm(props) {
         ],
       }));
     } catch (err) {
-      // console.log(err);
+      // console.log(err)
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
     }
   };
 
   return (
     <Form onSubmit={handleSubmit}>
+      {/* opinion field */}
       <Form.Group>
         <Link to={`/profiles/${profile_id}`}>
           <Avatar src={profileImage} />
@@ -70,6 +76,13 @@ function ReviewCreateForm(props) {
           rows={3}
         />
       </Form.Group>
+      {errors.opinion?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      {/* score field */}
       <Form.Group>
         <Form.Label>Score:</Form.Label>
         <Form.Control
@@ -79,6 +92,12 @@ function ReviewCreateForm(props) {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors.score?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
       <Button type="submit">Share</Button>
     </Form>
   );
