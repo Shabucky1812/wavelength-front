@@ -24,7 +24,6 @@ const Track = (props) => {
     owner,
     profile_id,
     profile_image,
-    review_id,
     reviews_count,
     title,
     trackPage,

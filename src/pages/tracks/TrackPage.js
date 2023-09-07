@@ -5,6 +5,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 // custom components
 import Track from "./Track";
 import ReviewCreateForm from "../reviews/ReviewCreateForm";
+import Review from "../reviews/Review";
 
 const TrackPage = () => {
   const { id } = useParams();
@@ -42,10 +43,10 @@ const TrackPage = () => {
           setReviews={setReviews}
         />
       ) : reviews.results.length ? (
-        "Reviews here"
+        "Reviews"
       ) : null}
       {reviews.results.length ? (
-        "reviews here"
+        reviews.results.map(review => <Review key={review.id} {...review} />)
       ) : currentUser ? (
         <span>No one has reviewed this track yet.</span>
       ) : (
