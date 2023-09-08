@@ -5,7 +5,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 // Dropdown needs access to the DOM node in order to position the Menu
 const DropdownIcon = React.forwardRef(({ onClick }, ref) => (
   <i
-    className="fa-solid fa-chevron-down"
+    className="fa-solid fa-gear"
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
@@ -14,14 +14,14 @@ const DropdownIcon = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
-export const MoreDropdown = ({handleEdit, handleDelete}) => {
+export const MoreDropdown = ({handleEdit, handleDelete, contentType}) => {
   return (
     <Dropdown>
       <Dropdown.Toggle as={DropdownIcon}/>
 
       <Dropdown.Menu popperConfig={{ strategy: "fixed" }}>
-        <Dropdown.Item onClick={handleEdit}>Edit Track</Dropdown.Item>
-        <Dropdown.Item onClick={handleDelete}>Delete Track</Dropdown.Item>
+        <Dropdown.Item onClick={handleEdit}>Edit {contentType}</Dropdown.Item>
+        <Dropdown.Item onClick={handleDelete}>Delete {contentType}</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

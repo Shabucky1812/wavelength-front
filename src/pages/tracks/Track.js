@@ -57,7 +57,7 @@ const Track = (props) => {
             </Link>
             <div className={styles.RightHeader}>
               <span className={styles.HeaderText}>Shared {created_at}</span>
-              {is_owner && trackPage && <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />}
+              {is_owner && trackPage && <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} contentType="Track" />}
             </div>
           </Col>
         </Row>
