@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { fetchMoreData } from "../../utils/utils";
+import InfiniteScroll from "react-infinite-scroll-component";
 // custom components
 import Track from "./Track";
 import ReviewCreateForm from "../reviews/ReviewCreateForm";
 import Review from "../reviews/Review";
+import Asset from "../../components/Asset";
 
 const TrackPage = () => {
   const { id } = useParams();
@@ -58,14 +61,20 @@ const TrackPage = () => {
 
       {/* reviews list */}
       {reviews.results.length ? (
-        reviews.results.map((review) => (
-          <Review
-            key={review.id}
-            {...review}
-            setTrack={setTrack}
-            setReviews={setReviews}
-          />
-        ))
+        <InfiniteScroll
+          children={reviews.results.map((review) => (
+            <Review
+              key={review.id}
+              {...review}
+              setTrack={setTrack}
+              setReviews={setReviews}
+            />
+          ))}
+          dataLength={reviews.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!reviews.next}
+          next={() => fetchMoreData(reviews, setReviews)}
+        />
       ) : currentUser ? (
         <span>No one has reviewed this track yet.</span>
       ) : (
