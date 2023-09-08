@@ -13,6 +13,7 @@ const TrackPage = () => {
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [reviews, setReviews] = useState({ results: [] });
+  const [userReview, setUserReview] = useState(null);
 
   useEffect(() => {
     const handleMount = async () => {
@@ -23,13 +24,16 @@ const TrackPage = () => {
         ]);
         setTrack({ results: [track] });
         setReviews(reviews);
+        const userReview = currentUser ? (reviews.results.filter(review => review.owner === currentUser.username )) : null
+        console.log(userReview)
+        setUserReview(userReview)
       } catch (err) {
         // console.log(err)
       }
     };
 
     handleMount();
-  }, [id]);
+  }, [id, currentUser]);
 
   return (
     <div>
