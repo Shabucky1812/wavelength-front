@@ -42,10 +42,10 @@ function ReviewCreateForm(props) {
           {
             ...prevTrack.results[0],
             average_score: prevTrack.results[0].average_score
-              ? (prevTrack.results[0].average_score *
+              ? Math.round((prevTrack.results[0].average_score *
                   prevTrack.results[0].reviews_count +
                   Number(score)) /
-                (prevTrack.results[0].reviews_count + 1)
+                (prevTrack.results[0].reviews_count + 1))
               : score,
             reviews_count: prevTrack.results[0].reviews_count + 1,
           },

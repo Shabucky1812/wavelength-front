@@ -17,12 +17,12 @@ const TrackPage = () => {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: track }, {data: reviews}] = await Promise.all([
+        const [{ data: track }, { data: reviews }] = await Promise.all([
           axiosReq.get(`/tracks/${id}`),
-          axiosReq.get(`reviews/?track=${id}`)
+          axiosReq.get(`reviews/?track=${id}`),
         ]);
         setTrack({ results: [track] });
-        setReviews(reviews)
+        setReviews(reviews);
       } catch (err) {
         // console.log(err)
       }
@@ -46,7 +46,14 @@ const TrackPage = () => {
         "Reviews"
       ) : null}
       {reviews.results.length ? (
-        reviews.results.map(review => <Review key={review.id} {...review} />)
+        reviews.results.map((review) => (
+          <Review
+            key={review.id}
+            {...review}
+            setTrack={setTrack}
+            setReviews={setReviews}
+          />
+        ))
       ) : currentUser ? (
         <span>No one has reviewed this track yet.</span>
       ) : (
