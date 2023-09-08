@@ -13,7 +13,7 @@ const TrackPage = () => {
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [reviews, setReviews] = useState({ results: [] });
-  const [userReview, setUserReview] = useState(null);
+  const [userReview, setUserReview] = useState([]);
 
   useEffect(() => {
     const handleMount = async () => {
@@ -24,9 +24,12 @@ const TrackPage = () => {
         ]);
         setTrack({ results: [track] });
         setReviews(reviews);
-        const userReview = currentUser ? (reviews.results.filter(review => review.owner === currentUser.username )) : null
-        console.log(userReview)
-        setUserReview(userReview)
+        const userReview = currentUser
+          ? reviews.results.filter(
+              (review) => review.owner === currentUser.username
+            )
+          : [];
+        setUserReview(userReview);
       } catch (err) {
         // console.log(err)
       }
@@ -38,7 +41,10 @@ const TrackPage = () => {
   return (
     <div>
       <Track {...track.results[0]} trackPage />
-      {currentUser ? (
+      {/* review form (create/edit) */}
+      {!!userReview.length ? (
+        <p>edit form</p>
+      ) : currentUser ? (
         <ReviewCreateForm
           profile_id={currentUser.profile_id}
           profileImage={profile_image}
@@ -49,6 +55,8 @@ const TrackPage = () => {
       ) : reviews.results.length ? (
         "Reviews"
       ) : null}
+
+      {/* reviews list */}
       {reviews.results.length ? (
         reviews.results.map((review) => (
           <Review
