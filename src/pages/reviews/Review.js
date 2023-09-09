@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 // custom components
 import Avatar from "../../components/Avatar";
+import ReviewEditForm from "./ReviewEditForm";
 // react-bootstrap components
 import Media from "react-bootstrap/Media";
 import { MoreDropdown } from "../../components/MoreDropdown";
@@ -21,6 +22,8 @@ const Review = (props) => {
     setReviews,
   } = props;
 
+  const [showEditForm, setShowEditForm] = useState(false);
+
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
@@ -34,10 +37,12 @@ const Review = (props) => {
             average_score:
               prevTrack.results[0].reviews_count === 1
                 ? null
-                : Math.round((prevTrack.results[0].average_score *
-                    prevTrack.results[0].reviews_count -
-                    Number(score)) /
-                  (prevTrack.results[0].reviews_count - 1)),
+                : Math.round(
+                    (prevTrack.results[0].average_score *
+                      prevTrack.results[0].reviews_count -
+                      Number(score)) /
+                      (prevTrack.results[0].reviews_count - 1)
+                  ),
             reviews_count: prevTrack.results[0].reviews_count - 1,
           },
         ],
@@ -61,12 +66,27 @@ const Review = (props) => {
         <Media.Body>
           <span>{owner}</span>
           <span>{reviewed_at}</span>
-          <p>{opinion}</p>
-          <p>{score}/100</p>
+          {showEditForm ? (
+            <ReviewEditForm
+              id={id}
+              profile_id={profile_id}
+              profileImage={profile_image}
+              prevOpinion={opinion}
+              prevScore={score}
+              setReviews={setReviews}
+              setTrack={setTrack}
+              setShowEditForm={setShowEditForm}
+            />
+          ) : (
+            <>
+              <p>{opinion}</p>
+              <p>{score}/100</p>
+            </>
+          )}
         </Media.Body>
-        {is_owner && (
+        {is_owner && !showEditForm && (
           <MoreDropdown
-            handleEdit={() => {}}
+            handleEdit={() => setShowEditForm(true)}
             handleDelete={handleDelete}
             contentType="Review"
           />
