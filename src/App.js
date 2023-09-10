@@ -17,6 +17,7 @@ import Container from "react-bootstrap/Container";
 import { Switch, Route } from "react-router-dom";
 // axiosDefaults
 import "./api/axiosDefaults";
+import ProfileSearch from "./pages/profiles/ProfileSearch";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -44,6 +45,7 @@ function App() {
               />
             )}
           />
+          <Route exact path="/search" render={() => <ProfileSearch message="No results found. Adjust the search query." />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route

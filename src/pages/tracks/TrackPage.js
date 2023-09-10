@@ -46,7 +46,7 @@ const TrackPage = () => {
       <Track {...track.results[0]} trackPage />
       {/* review form (create/edit) */}
       {!!userReview.length ? (
-        <p>edit form</p>
+        <p>already reviewed, please edit your existing review instead!</p>
       ) : currentUser ? (
         <ReviewCreateForm
           profile_id={currentUser.profile_id}
