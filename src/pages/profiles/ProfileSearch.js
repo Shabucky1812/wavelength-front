@@ -5,6 +5,7 @@ import { fetchMoreData } from "../../utils/utils";
 import Asset from "../../components/Asset";
 // react-bootstrap components
 import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
 // infinite scroll
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -38,7 +39,15 @@ const ProfileSearch = ({ message }) => {
 
   return (
     <Container>
-      <p>Search bar</p>
+      <Form onSubmit={(event) => event.preventDefault()}>
+      <i className="fa-solid fa-magnifying-glass"></i>
+        <Form.Control
+          type="text"
+          placeholder="Search Profiles"
+          value={searchQuery}
+          onChange={(event) => setSearchQuery(event.target.value)}
+        />
+      </Form>
       {hasLoaded ? (
         <>
           {profiles.results.length ? (
