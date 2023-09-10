@@ -20,7 +20,7 @@ const TracksPage = ({ message, filter = "" }) => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const fetchPosts = async () => {
+    const fetchTracks = async () => {
       try {
         const { data } = await axiosReq.get(
           `/tracks/?${filter}genre_id=${genre}&search=${searchQuery}`
@@ -34,7 +34,7 @@ const TracksPage = ({ message, filter = "" }) => {
 
     setHasLoaded(false);
     const timer = setTimeout(() => {
-      fetchPosts();
+      fetchTracks();
     }, 500);
     return () => {
       clearTimeout(timer);
