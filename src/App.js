@@ -11,13 +11,15 @@ import TrackCreateForm from "./pages/tracks/TrackCreateForm";
 import TrackEditForm from "./pages/tracks/TrackEditForm";
 import TrackPage from "./pages/tracks/TrackPage";
 import TracksPage from "./pages/tracks/TracksPage";
+// profile pages
+import ProfileSearch from "./pages/profiles/ProfileSearch";
+import ProfilePage from "./pages/profiles/ProfilePage";
 // react-bootstrap
 import Container from "react-bootstrap/Container";
 // react-router-dom
 import { Switch, Route } from "react-router-dom";
 // axiosDefaults
 import "./api/axiosDefaults";
-import ProfileSearch from "./pages/profiles/ProfileSearch";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -55,6 +57,7 @@ function App() {
           />
           <Route exact path="/tracks/:id/edit" render={() => <TrackEditForm />} />
           <Route exact path="/tracks/:id" render={() => <TrackPage />} />
+          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           {/* 404 Route */}
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
