@@ -41,7 +41,7 @@ const ProfileSearch = ({ message }) => {
   return (
     <Container>
       <Form onSubmit={(event) => event.preventDefault()}>
-      <i className="fa-solid fa-magnifying-glass"></i>
+        <i className="fa-solid fa-magnifying-glass"></i>
         <Form.Control
           type="text"
           placeholder="Search Profiles"
@@ -54,7 +54,7 @@ const ProfileSearch = ({ message }) => {
           {profiles.results.length ? (
             <InfiniteScroll
               children={profiles.results.map((profile) => (
-                <ProfilePreview key={profile.id} profile={profile} />
+                <ProfilePreview key={profile.id} profile={profile} setProfiles={setProfiles} />
               ))}
               dataLength={profiles.results.length}
               loader={<Asset spinner />}

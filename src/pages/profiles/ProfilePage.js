@@ -7,7 +7,7 @@ import Asset from "../../components/Asset";
 import Track from "../tracks/Track";
 // react-bootstrap components
 import Container from "react-bootstrap/Container";
-import { axiosReq } from "../../api/axiosDefaults";
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { Button } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -18,6 +18,34 @@ const ProfilePage = () => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === profile?.owner;
   const { id } = useParams();
+
+  const handleFollow = async (clickedProfile) => {
+    try {
+      const { data } = await axiosRes.post(`/followers/`, {
+        followed: clickedProfile.id,
+      });
+
+      setProfile((prevState) => ({
+        ...prevState,
+        results: prevState.results?.map((profile) => {
+          return profile.id === clickedProfile.id
+            ? {
+                ...profile,
+                followers_count: profile.followers_count + 1,
+                following_id: data.id,
+              }
+            : profile.is_owner
+            ? {
+                ...profile,
+                following_count: profile.following_count + 1,
+              }
+            : profile;
+        }),
+      }));
+    } catch (err) {
+      // console.log(err)
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,7 +79,7 @@ const ProfilePage = () => {
               (profile.following_id ? (
                 <Button onClick={() => {}}>unfollow</Button>
               ) : (
-                <Button onClick={() => {}}>follow</Button>
+                <Button onClick={() => handleFollow(profile)}>follow</Button>
               ))}
           </div>
           <hr />
@@ -59,16 +87,18 @@ const ProfilePage = () => {
             <p>{profile?.owner}'s Shared Tracks</p>
             {profileTracks?.results.length ? (
               <InfiniteScroll
-              children={profileTracks.results.map((track) => (
-                <Track key={track.id} {...track} />
-              ))}
-              dataLength={profileTracks.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!profileTracks.next}
-              next={() => fetchMoreData(profileTracks, setProfileTracks)}
-            />
+                children={profileTracks.results.map((track) => (
+                  <Track key={track.id} {...track} />
+                ))}
+                dataLength={profileTracks.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!profileTracks.next}
+                next={() => fetchMoreData(profileTracks, setProfileTracks)}
+              />
             ) : (
-              <Asset message={`${profile?.owner} has not shared any tracks yet!`} />
+              <Asset
+                message={`${profile?.owner} has not shared any tracks yet!`}
+              />
             )}
           </Container>
         </>
