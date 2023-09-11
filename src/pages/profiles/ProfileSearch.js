@@ -8,6 +8,7 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 // infinite scroll
 import InfiniteScroll from "react-infinite-scroll-component";
+import ProfilePreview from "./ProfilePreview";
 
 const ProfileSearch = ({ message }) => {
   const [profiles, setProfiles] = useState({ results: [] });
@@ -53,7 +54,7 @@ const ProfileSearch = ({ message }) => {
           {profiles.results.length ? (
             <InfiniteScroll
               children={profiles.results.map((profile) => (
-                <p key={profile.id}>{profile.owner}</p>
+                <ProfilePreview key={profile.id} profile={profile} />
               ))}
               dataLength={profiles.results.length}
               loader={<Asset spinner />}
