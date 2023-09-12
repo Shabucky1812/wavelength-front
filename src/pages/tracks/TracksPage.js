@@ -11,6 +11,7 @@ import Form from "react-bootstrap/Form";
 import Track from "./Track";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const TracksPage = ({ message, filter = "" }) => {
   const [tracks, setTracks] = useState({ results: [] });
@@ -18,6 +19,7 @@ const TracksPage = ({ message, filter = "" }) => {
   const [genre, setGenre] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const { pathname } = useLocation();
+  const currentUser = useCurrentUser()
 
   useEffect(() => {
     const fetchTracks = async () => {
@@ -39,7 +41,7 @@ const TracksPage = ({ message, filter = "" }) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, pathname, searchQuery, genre]);
+  }, [filter, pathname, searchQuery, genre, currentUser]);
 
   return (
     <>
