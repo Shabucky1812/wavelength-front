@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { fetchMoreData, followHelper } from "../../utils/utils";
+import { fetchMoreData, followHelper, unfollowHelper } from "../../utils/utils";
 // custom components
 import Asset from "../../components/Asset";
 import Track from "../tracks/Track";
@@ -34,6 +34,19 @@ const ProfilePage = () => {
     }
   };
 
+  const handleUnfollow = async (clickedProfile) => {
+    try {
+        await axiosRes.delete(`/followers/${clickedProfile.following_id}/`)
+
+        setProfile((prevState) => ({
+            ...prevState,
+            results: prevState.results?.map((profile) => unfollowHelper(profile, clickedProfile))
+        }))
+    } catch(err) {
+        // console.log(err)
+    }
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -64,7 +77,7 @@ const ProfilePage = () => {
             {currentUser &&
               !is_owner &&
               (profile.following_id ? (
-                <Button onClick={() => {}}>unfollow</Button>
+                <Button onClick={() => handleUnfollow(profile)}>unfollow</Button>
               ) : (
                 <Button onClick={() => handleFollow(profile)}>follow</Button>
               ))}

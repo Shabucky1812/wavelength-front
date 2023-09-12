@@ -4,7 +4,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { followHelper } from "../../utils/utils";
+import { followHelper, unfollowHelper } from "../../utils/utils";
 
 const ProfilePreview = ({ profile, setProfiles }) => {
   const { id, following_id, image, owner, tracks_count } = profile;
@@ -26,6 +26,19 @@ const ProfilePreview = ({ profile, setProfiles }) => {
     }
   };
 
+  const handleUnfollow = async (clickedProfile) => {
+    try {
+        await axiosRes.delete(`/followers/${clickedProfile.following_id}`)
+
+        setProfiles((prevState) => ({
+            ...prevState,
+            results: prevState.results?.map((profile) => unfollowHelper(profile, clickedProfile))
+        }))
+    } catch(err) {
+        // console.log(err)
+    }
+  }
+
   return (
     <div className="align-items-center">
       <Link to={`/profiles/${id}`}>
@@ -39,7 +52,7 @@ const ProfilePreview = ({ profile, setProfiles }) => {
         {currentUser &&
           !is_owner &&
           (following_id ? (
-            <Button onClick={() => {}}>unfollow</Button>
+            <Button onClick={() => handleUnfollow(profile)}>unfollow</Button>
           ) : (
             <Button onClick={() => handleFollow(profile)}>follow</Button>
           ))}
