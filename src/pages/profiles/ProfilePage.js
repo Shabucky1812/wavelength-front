@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { fetchMoreData } from "../../utils/utils";
+import { fetchMoreData, followHelper } from "../../utils/utils";
 // custom components
 import Asset from "../../components/Asset";
 import Track from "../tracks/Track";
@@ -27,20 +27,7 @@ const ProfilePage = () => {
 
       setProfile((prevState) => ({
         ...prevState,
-        results: prevState.results?.map((profile) => {
-          return profile.id === clickedProfile.id
-            ? {
-                ...profile,
-                followers_count: profile.followers_count + 1,
-                following_id: data.id,
-              }
-            : profile.is_owner
-            ? {
-                ...profile,
-                following_count: profile.following_count + 1,
-              }
-            : profile;
-        }),
+        results: prevState.results?.map((profile) => followHelper(profile, clickedProfile, data.id)),
       }));
     } catch (err) {
       // console.log(err)
@@ -63,7 +50,7 @@ const ProfilePage = () => {
     };
 
     fetchData();
-  }, [id]);
+  }, [id, profile]);
 
   return (
     <Container>
