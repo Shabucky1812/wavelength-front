@@ -8,8 +8,10 @@ import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const TrackCreateForm = () => {
+  useRedirect('loggedOut')
   const [errors, setErrors] = useState({});
 
   const [trackData, setTrackData] = useState({

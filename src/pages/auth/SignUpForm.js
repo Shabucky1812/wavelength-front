@@ -9,8 +9,11 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
+  useRedirect('loggedIn')
+
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",
