@@ -14,6 +14,9 @@ import TracksPage from "./pages/tracks/TracksPage";
 // profile pages
 import ProfileSearch from "./pages/profiles/ProfileSearch";
 import ProfilePage from "./pages/profiles/ProfilePage";
+import ProfilePictureEditForm from "./pages/profiles/ProfilePictureEditForm";
+import UsernameEditForm from "./pages/profiles/UsernameEditForm";
+import PasswordEditForm from "./pages/profiles/PasswordEditForm";
 // react-bootstrap
 import Container from "react-bootstrap/Container";
 // react-router-dom
@@ -58,6 +61,9 @@ function App() {
           <Route exact path="/tracks/:id/edit" render={() => <TrackEditForm />} />
           <Route exact path="/tracks/:id" render={() => <TrackPage />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route exact path="/profiles/:id/edit/picture" render={() => <ProfilePictureEditForm />} />
+          <Route exact path="/profiles/:id/edit/username" render={() => <UsernameEditForm />} />
+          <Route exact path="/profiles/:id/edit/password" render={() => <PasswordEditForm />} />
           {/* 404 Route */}
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
