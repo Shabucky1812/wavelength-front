@@ -5,6 +5,7 @@ import { fetchMoreData, followHelper, unfollowHelper } from "../../utils/utils";
 // custom components
 import Asset from "../../components/Asset";
 import Track from "../tracks/Track";
+import { ProfileEditDropdown } from "../../components/MoreDropdown";
 // react-bootstrap components
 import Container from "react-bootstrap/Container";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
@@ -70,7 +71,7 @@ const ProfilePage = () => {
       {hasLoaded ? (
         <>
           <div>
-            <p>profile header info</p>
+            {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
             {profile?.owner}
             {profile?.tracks_count}
             <p>tracks shared</p>
