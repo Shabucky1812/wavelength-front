@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "../../styles/Review.module.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 // custom components
@@ -57,15 +58,13 @@ const Review = (props) => {
   };
 
   return (
-    <div>
-      <hr />
+    <div className={styles.ReviewBackground}>
       <Media>
         <Link to={`/profiles/${profile_id}`}>
           <Avatar src={profile_image} />
         </Link>
-        <Media.Body>
-          <span>{owner}</span>
-          <span>{reviewed_at}</span>
+        <Media.Body className={styles.Body}>
+          <span className={styles.Header}>{owner} - {reviewed_at}</span>
           {showEditForm ? (
             <ReviewEditForm
               id={id}
@@ -79,8 +78,8 @@ const Review = (props) => {
             />
           ) : (
             <>
-              <p>{opinion}</p>
-              <p>{score}/100</p>
+              <span className={styles.Opinion}>{opinion}</span>
+              <span className={styles.Score}>{score}/100</span>
             </>
           )}
         </Media.Body>

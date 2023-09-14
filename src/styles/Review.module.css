@@ -1,0 +1,35 @@
+.ReviewBackground {
+    border: 2px solid #FEA520;
+    border-radius: 5px 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #262C29;
+}
+
+.Body {
+    padding-left: 10px;
+    border-left: 1px dashed #FEA520;
+}
+
+.Header {
+    line-height: 2;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: block;
+}
+
+.Opinion {
+    font-style: italic;
+    max-width: 600px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.Score {
+    font-size: 1.2rem;
+    font-weight: 700;
+}

@@ -39,7 +39,7 @@ const TrackPage = () => {
     };
 
     handleMount();
-  }, [id, currentUser]);
+  }, [id, currentUser, reviews]);
 
   return (
     <div>
