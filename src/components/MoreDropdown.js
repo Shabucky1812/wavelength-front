@@ -7,7 +7,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 // Dropdown needs access to the DOM node in order to position the Menu
 const DropdownIcon = React.forwardRef(({ onClick }, ref) => (
   <i
-    className="fa-solid fa-gear"
+    className="fa-solid fa-gear fa-lg"
     ref={ref}
     onClick={(e) => {
       e.preventDefault();

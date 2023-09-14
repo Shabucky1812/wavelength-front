@@ -2,6 +2,7 @@
     background-color: #262C29;
     border: solid 4px #08B1C4;
     border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 .Header {
@@ -13,11 +14,18 @@
     color: #2E3532;
     font-style: italic;
     font-weight: 700;
+    padding-right: 10px;
 }
 
 .RightHeader {
     float: right;
     padding-top: 15px;
+}
+
+.Dropdown {
+    float: right;
+    color: #2E3532;
+    line-height: 3;
 }
 
 .InfoContainer {
@@ -28,6 +36,10 @@
     max-height: 420px;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+.InfoBox {
+    min-height: 50px;
 }
 
 .Title {
@@ -42,6 +54,25 @@
     text-transform: uppercase;
 }
 
+.Opinion {
+    font-style: italic;
+}
+
+.ScoreText {
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.Score {
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+.ReviewCount { 
+    display: block;
+}
+
 .CoverArtLink {
     padding-left: 0;
 }
@@ -49,4 +80,26 @@
 .CoverArt {
     max-height: 500px;
     border-radius: 10px;
+}
+
+@media screen and (max-width: 575px) {
+    .ProfileAvatar {
+        padding-left: 0;
+    }
+
+    .HeaderText {
+        font-size: 0.9rem;
+    }
+
+    .RightHeader {
+        padding-top: 0;
+    }
+
+    .Dropdown {
+        line-height: 1.5;
+    }
+
+    .UpdatedTimeText {
+        font-size: 0.6rem;
+    }
 }

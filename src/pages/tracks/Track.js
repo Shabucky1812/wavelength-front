@@ -51,13 +51,13 @@ const Track = (props) => {
       <Card.Header className={styles.Header}>
         <Row>
           <Col xs={12}>
-            <Link to={`/profiles/${profile_id}`}>
+            <Link to={`/profiles/${profile_id}`} className={styles.ProfileAvatar}>
               <Avatar src={profile_image} height={60} />
               <span className={styles.HeaderText}>{owner}</span>
             </Link>
+            <span className={styles.Dropdown}>{is_owner && trackPage && <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} contentType="Track" />}</span>
             <div className={styles.RightHeader}>
-              <span className={styles.HeaderText}>Shared {created_at}</span>
-              {is_owner && trackPage && <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} contentType="Track" />}
+              <span className={`${styles.HeaderText} ${styles.UpdatedTimeText}`}>Shared {created_at}</span>
             </div>
           </Col>
         </Row>
@@ -65,20 +65,24 @@ const Track = (props) => {
       <Card.Body>
         <Row>
           <Col xs={12} md={6} className={`${styles.InfoContainer}`}>
-            <div>
+            <div className={styles.InfoBox}>
               <Card.Title className={styles.Title}>
                 {title} - {artist}
               </Card.Title>
               <Card.Subtitle className={styles.Subtitle}>{genre}</Card.Subtitle>
             </div>
             <hr />
-            <Card.Text>{opinion}</Card.Text>
+            <div className={styles.InfoBox}>
+              <Card.Text className={styles.Opinion}>{opinion}</Card.Text>
+            </div>
             <hr />
-            <Card.Text>
-              Score:{" "}
-              <span>{average_score ? average_score : "Not yet scored"}</span>
-              <span><i className="fa-regular fa-comment-dots"></i>{reviews_count} reviews</span>
-            </Card.Text>
+            <div className={styles.InfoBox}>
+              <Card.Text className={styles.ScoreText}>
+                Score:{" "}
+                <span className={styles.Score}>{average_score ? average_score : "Not yet scored"}</span>
+                <span className={styles.ReviewCount}><i className="fa-regular fa-comment-dots"></i>{reviews_count} reviews</span>
+              </Card.Text>
+            </div>
           </Col>
           <Col xs={12} md={6}>
             <Link to={`/tracks/${id}`} className={styles.CoverArtLink}>
