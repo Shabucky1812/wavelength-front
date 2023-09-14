@@ -1,6 +1,10 @@
+.Asset {
+    text-align: center;
+}
+
 .Spinner {
     height: 5rem;
     width: 5rem;
-    margin: 20px auto 0 auto;
+    margin-top: 20px;
     color: #F18F01;
 }

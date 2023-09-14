@@ -6,7 +6,7 @@ import Spinner from "react-bootstrap/Spinner";
 
 const Asset = ({ spinner, src, message }) => {
   return (
-    <div className={styles.Spinner}>
+    <div className={styles.Asset}>
       {spinner && (
         <Spinner animation="border" role="status" className={styles.Spinner}>
           <span className="sr-only">Loading...</span>
