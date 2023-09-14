@@ -5,6 +5,7 @@ import {
   useSetCurrentUser,
 } from "../contexts/CurrentUserContext";
 import { removeTokenTimestamp } from "../utils/utils";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 // css link
 import styles from "../styles/NavBar.module.css";
 // custom components
@@ -15,7 +16,6 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 // react-router-dom NavLink
 import { NavLink } from "react-router-dom";
-import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();

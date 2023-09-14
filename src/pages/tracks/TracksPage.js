@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { fetchMoreData } from "../../utils/utils";
+// css links
+import styles from "../../styles/TracksPage.module.css";
 // react-bootstrap components
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -19,7 +21,7 @@ const TracksPage = ({ message, filter = "" }) => {
   const [genre, setGenre] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const { pathname } = useLocation();
-  const currentUser = useCurrentUser()
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     const fetchTracks = async () => {
@@ -45,9 +47,9 @@ const TracksPage = ({ message, filter = "" }) => {
 
   return (
     <>
-      <Row>
+      <Row className={styles.FilterRow}>
         <Col xs={6} md={8}>
-          <i className="fa-solid fa-magnifying-glass"></i>
+          <i className="fa-solid fa-magnifying-glass"></i>Search
           <Form onSubmit={(event) => event.preventDefault()}>
             <Form.Control
               type="text"
@@ -86,6 +88,7 @@ const TracksPage = ({ message, filter = "" }) => {
           </Form>
         </Col>
       </Row>
+      <hr />
       <Row>
         <Col xs={12} md={{ span: 10, offset: 1 }}>
           {hasLoaded ? (
