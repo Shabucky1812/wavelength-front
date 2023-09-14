@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { fetchMoreData } from "../../utils/utils";
+// css links
+import styles from "../../styles/ProfileSearch.module.css";
+// custom components
 import Asset from "../../components/Asset";
+import ProfilePreview from "./ProfilePreview";
 // react-bootstrap components
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 // infinite scroll
 import InfiniteScroll from "react-infinite-scroll-component";
-import ProfilePreview from "./ProfilePreview";
 
 const ProfileSearch = ({ message }) => {
   const [profiles, setProfiles] = useState({ results: [] });
@@ -40,8 +43,8 @@ const ProfileSearch = ({ message }) => {
 
   return (
     <Container>
-      <Form onSubmit={(event) => event.preventDefault()}>
-        <i className="fa-solid fa-magnifying-glass"></i>
+      <Form onSubmit={(event) => event.preventDefault()} className={styles.SearchBar}>
+        <i className="fa-solid fa-magnifying-glass"></i>Search
         <Form.Control
           type="text"
           placeholder="Search Profiles"
@@ -49,6 +52,7 @@ const ProfileSearch = ({ message }) => {
           onChange={(event) => setSearchQuery(event.target.value)}
         />
       </Form>
+      <hr/>
       {hasLoaded ? (
         <>
           {profiles.results.length ? (

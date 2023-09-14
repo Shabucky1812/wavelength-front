@@ -1,10 +1,15 @@
 import React from "react";
-import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { axiosRes } from "../../api/axiosDefaults";
-import Avatar from "../../components/Avatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { followHelper, unfollowHelper } from "../../utils/utils";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { axiosRes } from "../../api/axiosDefaults";
+// css links
+import styles from "../../styles/ProfilePreview.module.css";
+import btnStyles from "../../styles/Button.module.css";
+// custom components
+import Avatar from "../../components/Avatar";
+// react-bootstrap components
+import Button from "react-bootstrap/Button";
 
 const ProfilePreview = ({ profile, setProfiles }) => {
   const { id, following_id, image, owner, tracks_count } = profile;
@@ -40,21 +45,21 @@ const ProfilePreview = ({ profile, setProfiles }) => {
   }
 
   return (
-    <div className="align-items-center">
+    <div className={styles.PreviewBackground}>
       <Link to={`/profiles/${id}`}>
         <Avatar src={image} />
       </Link>
-      <div>
+      <div className={styles.InfoText}>
         <span>{owner}</span>
-        <span>Shared Tracks: {tracks_count}</span>
+        <span className={styles.ExtraText}> - Shared Tracks: {tracks_count}</span>
       </div>
-      <div className="text-right">
+      <div className={styles.FollowButton}>
         {currentUser &&
           !is_owner &&
           (following_id ? (
-            <Button onClick={() => handleUnfollow(profile)}>unfollow</Button>
+            <button onClick={() => handleUnfollow(profile)} className={`${btnStyles.Btn} ${btnStyles.FollowBtn}`}>unfollow</button>
           ) : (
-            <Button onClick={() => handleFollow(profile)}>follow</Button>
+            <button onClick={() => handleFollow(profile)} className={`${btnStyles.Btn} ${btnStyles.FollowBtn}`}>follow</button>
           ))}
       </div>
     </div>

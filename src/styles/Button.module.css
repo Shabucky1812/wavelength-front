@@ -3,6 +3,7 @@
     background-color: #E0E2DB;
     border: 5px solid #08B1C4;
     border-radius: 8px;
+    height: 35px;
     color: #2E3532;
     transition: background-color ease-in-out 0.3s;
     text-transform: uppercase;
@@ -11,6 +12,19 @@
 .Btn:hover {
     background-color: #08B1C4;
     border: 5px solid #08B1C4;
+    color: #2E3532;
+}
+
+.FollowBtn {
+    border: 5px solid #F18F01;
+    margin-top: 5px;
+    margin-right: 5px;
+    font-size: 0.8rem;
+}
+
+.FollowBtn:hover {
+    background-color: #F18F01;
+    border: 5px solid #F18F01;
     color: #2E3532;
 }
 
