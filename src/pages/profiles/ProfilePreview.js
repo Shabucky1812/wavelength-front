@@ -8,8 +8,6 @@ import styles from "../../styles/ProfilePreview.module.css";
 import btnStyles from "../../styles/Button.module.css";
 // custom components
 import Avatar from "../../components/Avatar";
-// react-bootstrap components
-import Button from "react-bootstrap/Button";
 
 const ProfilePreview = ({ profile, setProfiles }) => {
   const { id, following_id, image, owner, tracks_count } = profile;
