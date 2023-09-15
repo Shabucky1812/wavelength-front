@@ -1,0 +1,43 @@
+.TrackFormBackground {
+    max-width: 1000px;
+    padding: 6vh 10%;
+}
+
+.CoverArt {
+    text-align: center;
+    border: 2px dashed #08B1C4;
+    border-radius: 10px;
+    margin: 20px 8%;
+}
+
+.AddImage {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    width: 100%;
+    height: 100%;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+.AddImage i {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.ChangeImage {
+    padding-bottom: 10px;
+    width: 100%;
+    height: 100%;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+.Buttons {
+    text-align: center;
+}
+
+.Buttons button {
+    margin: 5px 5px 0 5px;
+}

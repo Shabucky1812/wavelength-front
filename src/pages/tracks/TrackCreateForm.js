@@ -1,17 +1,19 @@
 import React, { useRef, useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useRedirect } from "../../hooks/useRedirect";
 import { axiosReq } from "../../api/axiosDefaults";
 // css links
+import styles from "../../styles/TrackCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import formStyles from "../../styles/Form.module.css";
 // react-bootstrap components
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
-import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-import { useRedirect } from "../../hooks/useRedirect";
+import Container from "react-bootstrap/Container";
 
 const TrackCreateForm = () => {
-  useRedirect('loggedOut')
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
 
   const [trackData, setTrackData] = useState({
@@ -65,123 +67,146 @@ const TrackCreateForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      {/* title field */}
-      <Form.Group>
-        <Form.Label>Title</Form.Label>
-        <Form.Control
-          type="text"
-          name="title"
-          value={title}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors.title?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
+    <div className={styles.TrackFormBackground}>
+      <Container className={formStyles.FormContainer}>
+        <h2 className={formStyles.Title}>Share Track</h2>
+        <hr />
+        <Form className={formStyles.Form} onSubmit={handleSubmit}>
+          {/* title field */}
+          <Form.Group>
+            <Form.Label className={formStyles.Label}>Title</Form.Label>
+            <Form.Control
+              type="text"
+              name="title"
+              value={title}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors.title?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
 
-      {/* artist field */}
-      <Form.Group>
-        <Form.Label>Artist</Form.Label>
-        <Form.Control
-          type="text"
-          name="artist"
-          value={artist}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors.artist?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
+          {/* artist field */}
+          <Form.Group>
+            <Form.Label className={formStyles.Label}>Artist</Form.Label>
+            <Form.Control
+              type="text"
+              name="artist"
+              value={artist}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors.artist?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
 
-      {/* cover art field */}
-      <Form.Group>
-        {cover_art ? (
-          <>
-            <figure>
-              <Image src={cover_art} alt="example track cover art" />
-            </figure>
-            <Form.Label className={btnStyles.Btn} htmlFor="image-upload">
-              Change Image
-            </Form.Label>
-          </>
-        ) : (
-          <Form.Label className={btnStyles.Btn} htmlFor="image-upload">
-            Add Image
-          </Form.Label>
-        )}
-        <Form.File
-          id="image-upload"
-          accept="image/*"
-          className="d-none"
-          onChange={handleChangeCoverArt}
-          ref={imageInput}
-        />
-      </Form.Group>
-      {errors.cover_art?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
+          {/* cover art field */}
+          <Form.Group className={styles.CoverArt}>
+            {cover_art ? (
+              <>
+                <Form.Label
+                  className={styles.ChangeImage}
+                  htmlFor="image-upload"
+                >
+                  <figure className={formStyles.ImagePreviewWrapper}>
+                    <Image
+                      src={cover_art}
+                      alt="example track cover art"
+                      className={formStyles.ImagePreview}
+                    />
+                  </figure>
+                  Click/Tap to Change
+                </Form.Label>
+              </>
+            ) : (
+              <Form.Label className={styles.AddImage} htmlFor="image-upload">
+                <i className="fa-solid fa-plus fa-xl"></i>
+                Add Image
+              </Form.Label>
+            )}
+            <Form.File
+              id="image-upload"
+              accept="image/*"
+              className="d-none"
+              onChange={handleChangeCoverArt}
+              ref={imageInput}
+            />
+          </Form.Group>
+          {errors.cover_art?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
 
-      {/* genre_id field */}
-      <Form.Group>
-        <Form.Label>Genre</Form.Label>
-        <Form.Control
-          as="select"
-          custom
-          name="genre_id"
-          value={genre_id}
-          onChange={handleChange}
-        >
-          <option value={0}>No genre</option>
-          <option value={1}>Pop</option>
-          <option value={2}>Rock</option>
-          <option value={3}>Hip-Hop</option>
-          <option value={4}>Country</option>
-          <option value={5}>R&B</option>
-          <option value={6}>Folk</option>
-          <option value={7}>Jazz</option>
-          <option value={8}>Metal</option>
-          <option value={9}>EDM</option>
-          <option value={10}>Soul</option>
-          <option value={11}>Funk</option>
-          <option value={12}>Reggae</option>
-          <option value={13}>Punk</option>
-          <option value={14}>Classical</option>
-          <option value={15}>Trap</option>
-        </Form.Control>
-      </Form.Group>
-      {errors.genre_id?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
+          {/* genre_id field */}
+          <Form.Group>
+            <Form.Label className={formStyles.Label}>Genre</Form.Label>
+            <Form.Control
+              as="select"
+              custom
+              name="genre_id"
+              value={genre_id}
+              onChange={handleChange}
+            >
+              <option value={0}>No genre</option>
+              <option value={1}>Pop</option>
+              <option value={2}>Rock</option>
+              <option value={3}>Hip-Hop</option>
+              <option value={4}>Country</option>
+              <option value={5}>R&B</option>
+              <option value={6}>Folk</option>
+              <option value={7}>Jazz</option>
+              <option value={8}>Metal</option>
+              <option value={9}>EDM</option>
+              <option value={10}>Soul</option>
+              <option value={11}>Funk</option>
+              <option value={12}>Reggae</option>
+              <option value={13}>Punk</option>
+              <option value={14}>Classical</option>
+              <option value={15}>Trap</option>
+            </Form.Control>
+          </Form.Group>
+          {errors.genre_id?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
 
-      {/* opinion field */}
-      <Form.Group>
-        <Form.Label>Opinion</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={3}
-          name="opinion"
-          value={opinion}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors.opinion?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
+          {/* opinion field */}
+          <Form.Group>
+            <Form.Label className={formStyles.Label}>Opinion</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              name="opinion"
+              value={opinion}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors.opinion?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
 
-      <Button onClick={() => history.goBack()}>Cancel</Button>
-      <Button type="submit">Share</Button>
-    </Form>
+          <div className={styles.Buttons}>
+            <button type="submit" className={`${btnStyles.Btn}`}>
+              Share
+            </button>
+            <button
+              onClick={() => history.goBack()}
+              className={`${btnStyles.Btn} ${btnStyles.Cancel}`}
+            >
+              Cancel
+            </button>
+          </div>
+        </Form>
+      </Container>
+    </div>
   );
 };
 

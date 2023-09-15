@@ -4,10 +4,10 @@ import axios from "axios";
 // css links
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import formStyles from "../../styles/Form.module.css";
 // react-bootstrap components
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import { useRedirect } from "../../hooks/useRedirect";
 
@@ -44,13 +44,13 @@ const SignUpForm = () => {
 
   return (
     <div className={styles.SignUpBackground}>
-      <Container className={styles.FormContainer}>
-        <h2 className={styles.Title}>Create an Account</h2>
+      <Container className={formStyles.FormContainer}>
+        <h2 className={formStyles.Title}>Create an Account</h2>
         <hr />
-        <Form className={styles.Form} onSubmit={handleSubmit}>
+        <Form className={formStyles.Form} onSubmit={handleSubmit}>
           {/* username field */}
           <Form.Group controlId="username">
-            <Form.Label className={styles.Label}>Username:</Form.Label>
+            <Form.Label className={formStyles.Label}>Username:</Form.Label>
             <Form.Control
               type="text"
               placeholder="Username"
@@ -67,7 +67,7 @@ const SignUpForm = () => {
 
           {/* password1 field */}
           <Form.Group controlId="password1">
-            <Form.Label className={styles.Label}>Password:</Form.Label>
+            <Form.Label className={formStyles.Label}>Password:</Form.Label>
             <Form.Control
               type="password"
               placeholder="Password"
@@ -84,7 +84,7 @@ const SignUpForm = () => {
 
           {/* password2 field */}
           <Form.Group controlId="password2">
-            <Form.Label className={styles.Label}>Confirm password:</Form.Label>
+            <Form.Label className={formStyles.Label}>Confirm password:</Form.Label>
             <Form.Control
               type="password"
               placeholder="Confirm password"
@@ -106,12 +106,12 @@ const SignUpForm = () => {
             </Alert>
           ))}
 
-          <Button
+          <button
             type="submit"
             className={`${btnStyles.Btn} ${btnStyles.Right}`}
           >
             Sign up
-          </Button>
+          </button>
         </Form>
       </Container>
     </div>

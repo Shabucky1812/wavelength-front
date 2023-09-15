@@ -27,6 +27,16 @@
     color: #2E3532;
 }
 
+.Cancel {
+    border: 5px solid #B10303
+}
+
+.Cancel:hover {
+    background-color: #B10303;
+    border: 5px solid #B10303;
+    color: #2E3532;
+}
+
 .Right {
     float: right;
 }

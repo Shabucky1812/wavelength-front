@@ -7,10 +7,10 @@ import { setTokenTimestamp } from "../../utils/utils";
 // css links
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import formStyles from "../../styles/Form.module.css";
 // react-bootstrap components
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 
 const SignInForm = () => {
@@ -48,13 +48,13 @@ const SignInForm = () => {
 
   return (
     <div className={styles.SignInBackground}>
-      <Container className={styles.FormContainer}>
-        <h2 className={styles.Title}>Sign In</h2>
+      <Container className={formStyles.FormContainer}>
+        <h2 className={formStyles.Title}>Sign In</h2>
         <hr />
-        <Form className={styles.Form} onSubmit={handleSubmit}>
+        <Form className={formStyles.Form} onSubmit={handleSubmit}>
           {/* username field */}
           <Form.Group controlId="username">
-            <Form.Label className={styles.Label}>Username:</Form.Label>
+            <Form.Label className={formStyles.Label}>Username:</Form.Label>
             <Form.Control
               type="text"
               placeholder="Username"
@@ -71,7 +71,7 @@ const SignInForm = () => {
 
           {/* password field */}
           <Form.Group controlId="password">
-            <Form.Label className={styles.Label}>Password:</Form.Label>
+            <Form.Label className={formStyles.Label}>Password:</Form.Label>
             <Form.Control
               type="password"
               placeholder="Password"
@@ -93,12 +93,12 @@ const SignInForm = () => {
             </Alert>
           ))}
 
-          <Button
+          <button
             type="submit"
             className={`${btnStyles.Btn} ${btnStyles.Right}`}
           >
             Sign in
-          </Button>
+          </button>
         </Form>
       </Container>
     </div>
