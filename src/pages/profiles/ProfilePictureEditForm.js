@@ -4,14 +4,16 @@ import {
   useParams,
 } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 // css links
+import styles from "../../styles/ProfileEditForms.module.css";
+import formStyles from "../../styles/Form.module.css";
 import btnStyles from "../../styles/Button.module.css";
 // react-bootstrap components
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import Container from "react-bootstrap/Container";
 
 const ProfilePictureEditForm = () => {
   const [errors, setErrors] = useState([]);
@@ -68,31 +70,47 @@ const ProfilePictureEditForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group>
-        <figure>
-          <Image src={profilePicture} alt="profile picture" />
-        </figure>
-        <Form.Label className={btnStyles.Btn} htmlFor="image-upload">
-          Change Image
-        </Form.Label>
-        <Form.File
-          id="image-upload"
-          accept="image/*"
-          className="d-none"
-          onChange={handleChangeProfilePicture}
-          ref={imageInput}
-        />
-      </Form.Group>
-      {errors.profilePicture?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
+    <Container className={formStyles.FormContainer}>
+      <h2 className={formStyles.Title}>Change Profile Image</h2>
+      <Form onSubmit={handleSubmit} className={formStyles.Form}>
+        <Form.Group className={styles.ProfileImage}>
+          <Form.Label className={styles.ChangeImage} htmlFor="image-upload">
+            <figure className={formStyles.ImagePreviewWrapper}>
+              <Image
+                src={profilePicture}
+                alt="profile picture"
+                className={formStyles.ImagePreview}
+              />
+            </figure>
+            Click/Tap to change
+          </Form.Label>
+          <Form.File
+            id="image-upload"
+            accept="image/*"
+            className="d-none"
+            onChange={handleChangeProfilePicture}
+            ref={imageInput}
+          />
+        </Form.Group>
+        {errors.profilePicture?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
 
-      <Button onClick={() => history.goBack()}>Cancel</Button>
-      <Button type="submit">Save</Button>
-    </Form>
+        <div className={styles.Buttons}>
+          <button className={btnStyles.Btn} type="submit">
+            Save
+          </button>
+          <button
+            className={`${btnStyles.Btn} ${btnStyles.Cancel}`}
+            onClick={() => history.goBack()}
+          >
+            Cancel
+          </button>
+        </div>
+      </Form>
+    </Container>
   );
 };
 
