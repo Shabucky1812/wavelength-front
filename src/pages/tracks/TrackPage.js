@@ -45,6 +45,7 @@ const TrackPage = () => {
     <div>
       <Track {...track.results[0]} trackPage />
       {/* review form (create/edit) */}
+      <hr/>
       {!!userReview.length ? (
         <p>already reviewed, please edit your existing review instead!</p>
       ) : currentUser ? (
@@ -60,6 +61,7 @@ const TrackPage = () => {
       ) : null}
 
       {/* reviews list */}
+      <hr/>
       {reviews.results.length ? (
         <InfiniteScroll
           children={reviews.results.map((review) => (

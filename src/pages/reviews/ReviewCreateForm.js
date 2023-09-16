@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
-// custom components
-import Avatar from "../../components/Avatar";
+// css links
+import styles from "../../styles/ReviewCreateEditForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
+import formStyles from "../../styles/Form.module.css";
 // react-bootstrap components
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
+import Container from "react-bootstrap/Container";
 
 function ReviewCreateForm(props) {
-  const { track, setTrack, setReviews, profileImage, profile_id } = props;
+  const { track, setTrack, setReviews } = props;
   const [reviewData, setReviewData] = useState({
     opinion: "",
-    score: 0,
+    score: null,
   });
 
   const { opinion, score } = reviewData;
@@ -42,10 +43,12 @@ function ReviewCreateForm(props) {
           {
             ...prevTrack.results[0],
             average_score: prevTrack.results[0].average_score
-              ? Math.round((prevTrack.results[0].average_score *
-                  prevTrack.results[0].reviews_count +
-                  Number(score)) /
-                (prevTrack.results[0].reviews_count + 1))
+              ? Math.round(
+                  (prevTrack.results[0].average_score *
+                    prevTrack.results[0].reviews_count +
+                    Number(score)) /
+                    (prevTrack.results[0].reviews_count + 1)
+                )
               : score,
             reviews_count: prevTrack.results[0].reviews_count + 1,
           },
@@ -60,46 +63,48 @@ function ReviewCreateForm(props) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      {/* opinion field */}
-      <Form.Group>
-        <Link to={`/profiles/${profile_id}`}>
-          <Avatar src={profileImage} />
-        </Link>
-        <Form.Label>Opinion:</Form.Label>
-        <Form.Control
-          placeholder="my review..."
-          as="textarea"
-          name="opinion"
-          value={opinion}
-          onChange={handleChange}
-          rows={3}
-        />
-      </Form.Group>
-      {errors.opinion?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
+    <Container className={`${formStyles.FormContainer} ${styles.ReviewFormContainer}`}>
+      <h2 className={formStyles.Title}>Review Track</h2>
+      <Form onSubmit={handleSubmit} className={formStyles.Form}>
+        {/* opinion field */}
+        <Form.Group>
+          <Form.Label className={formStyles.Label}>Opinion:</Form.Label>
+          <Form.Control
+            placeholder="my review..."
+            as="textarea"
+            name="opinion"
+            value={opinion}
+            onChange={handleChange}
+            rows={3}
+          />
+        </Form.Group>
+        {errors.opinion?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
 
-      {/* score field */}
-      <Form.Group>
-        <Form.Label>Score:</Form.Label>
-        <Form.Control
-          type="number"
-          name="score"
-          value={score}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors.score?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
+        {/* score field */}
+        <Form.Group>
+          <Form.Label className={formStyles.Label}>Score:</Form.Label>
+          <Form.Control
+            type="number"
+            name="score"
+            value={score}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        {errors.score?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
 
-      <Button type="submit">Share</Button>
-    </Form>
+        <button type="submit" className={`${btnStyles.Btn} ${styles.ReviewButton}`}>
+          Share
+        </button>
+      </Form>
+    </Container>
   );
 }
 

@@ -1,0 +1,10 @@
+.ReviewFormContainer {
+    padding: 20px 5%;
+    max-width: 900px;
+}
+
+.ReviewButton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
