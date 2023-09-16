@@ -5,10 +5,14 @@ import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
+// css links
+import styles from "../../styles/ProfileEditForms.module.css";
+import btnStyles from "../../styles/Button.module.css";
+import formStyles from "../../styles/Form.module.css";
 // react-bootstrap components
 import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
 
 const UsernameEditForm = () => {
   const [username, setUsername] = useState("");
@@ -46,24 +50,37 @@ const UsernameEditForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group>
-        <Form.Label>Change username</Form.Label>
-        <Form.Control
-          placeholder="username"
-          type="text"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
-      </Form.Group>
-      {errors?.username?.map((message, idx) => (
-        <Alert key={idx} variant="warning">
-          {message}
-        </Alert>
-      ))}
-      <Button onClick={() => history.goBack()}>Cancel</Button>
-      <Button type="submit">Save</Button>
-    </Form>
+    <Container className={formStyles.FormContainer}>
+      <h2 className={formStyles.Title}>Change Username</h2>
+      <hr />
+      <Form onSubmit={handleSubmit} className={styles.Form}>
+        <Form.Group className={styles.ProfileFormGroup}>
+          <Form.Label className={formStyles.Label}>Change username</Form.Label>
+          <Form.Control
+            placeholder="username"
+            type="text"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+          />
+        </Form.Group>
+        {errors?.username?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+        <div className={styles.Buttons}>
+          <button className={btnStyles.Btn} type="submit">
+            Save
+          </button>
+          <button
+            className={`${btnStyles.Btn} ${btnStyles.Cancel}`}
+            onClick={() => history.goBack()}
+          >
+            Cancel
+          </button>
+        </div>
+      </Form>
+    </Container>
   );
 };
 

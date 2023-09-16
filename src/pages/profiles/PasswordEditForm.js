@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-
-import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-
 import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+// css links
+import styles from "../../styles/ProfileEditForms.module.css";
+import btnStyles from "../../styles/Button.module.css";
+import formStyles from "../../styles/Form.module.css";
+// react-bootstrap components
+import Alert from "react-bootstrap/Alert";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
 
 const PasswordEditForm = () => {
   const [errors, setErrors] = useState({});
@@ -45,40 +48,46 @@ const PasswordEditForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group>
-        <Form.Label>New password</Form.Label>
-        <Form.Control
-          placeholder="new password"
-          type="password"
-          value={new_password1}
-          onChange={handleChange}
-          name="new_password1"
-        />
-      </Form.Group>
-      {errors?.new_password1?.map((message, idx) => (
-        <Alert key={idx} variant="warning">
-          {message}
-        </Alert>
-      ))}
-      <Form.Group>
-        <Form.Label>Confirm password</Form.Label>
-        <Form.Control
-          placeholder="confirm new password"
-          type="password"
-          value={new_password2}
-          onChange={handleChange}
-          name="new_password2"
-        />
-      </Form.Group>
-      {errors?.new_password2?.map((message, idx) => (
-        <Alert key={idx} variant="warning">
-          {message}
-        </Alert>
-      ))}
-      <Button onClick={() => history.goBack()}>Cancel</Button>
-      <Button type="submit">Save</Button>
-    </Form>
+    <Container className={formStyles.FormContainer}>
+      <h2 className={formStyles.Title}>Change Password</h2>
+      <hr />
+      <Form onSubmit={handleSubmit} className={formStyles.Form}>
+        <Form.Group className={styles.ProfileFormGroup}>
+          <Form.Label className={formStyles.Label}>New password</Form.Label>
+          <Form.Control
+            placeholder="new password"
+            type="password"
+            value={new_password1}
+            onChange={handleChange}
+            name="new_password1"
+          />
+        </Form.Group>
+        {errors?.new_password1?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+        <Form.Group className={styles.ProfileFormGroup}>
+          <Form.Label className={formStyles.Label}>Confirm password</Form.Label>
+          <Form.Control
+            placeholder="confirm new password"
+            type="password"
+            value={new_password2}
+            onChange={handleChange}
+            name="new_password2"
+          />
+        </Form.Group>
+        {errors?.new_password2?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+        <div className={styles.Buttons}>
+          <button className={btnStyles.Btn} type="submit">Save</button>
+          <button className={`${btnStyles.Btn} ${btnStyles.Cancel}`} onClick={() => history.goBack()}>Cancel</button>
+        </div>
+      </Form>
+    </Container>
   );
 };
 
