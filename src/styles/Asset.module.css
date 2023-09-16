@@ -8,3 +8,11 @@
     margin-top: 20px;
     color: #F18F01;
 }
+
+.Message {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { axiosRes } from "../../api/axiosDefaults";
+// css links
+import styles from "../../styles/ReviewCreateEditForm.module.css";
+import formStyles from "../../styles/Form.module.css";
+import btnStyles from "../../styles/Button.module.css";
 // react-bootstrap components
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 
 function ReviewEditForm(props) {
@@ -66,10 +69,10 @@ function ReviewEditForm(props) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className={formStyles.Form}>
       {/* opinion field */}
       <Form.Group>
-        <Form.Label>Opinion:</Form.Label>
+        <Form.Label className={formStyles.Label}>Opinion:</Form.Label>
         <Form.Control
           placeholder="my review..."
           as="textarea"
@@ -87,7 +90,7 @@ function ReviewEditForm(props) {
 
       {/* score field */}
       <Form.Group>
-        <Form.Label>Score:</Form.Label>
+        <Form.Label className={formStyles.Label}>Score:</Form.Label>
         <Form.Control
           type="number"
           name="score"
@@ -101,10 +104,12 @@ function ReviewEditForm(props) {
         </Alert>
       ))}
 
-      <Button type="submit">Save Changes</Button>
-      <Button type="button" onClick={() => setShowEditForm(false)}>
+      <div className={styles.EditButtons}>
+      <button type="submit" className={btnStyles.Btn}>Save</button>
+      <button type="button" className={`${btnStyles.Btn} ${btnStyles.Cancel}`} onClick={() => setShowEditForm(false)}>
         Cancel
-      </Button>
+      </button>
+      </div>
     </Form>
   );
 }

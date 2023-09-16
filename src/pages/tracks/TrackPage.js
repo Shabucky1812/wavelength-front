@@ -45,9 +45,12 @@ const TrackPage = () => {
     <div>
       <Track {...track.results[0]} trackPage />
       {/* review form (create/edit) */}
-      <hr/>
+      <hr />
       {!!userReview.length ? (
-        <p>already reviewed, please edit your existing review instead!</p>
+        <>
+          <Asset message="You have already reviewed this Track. Edit/Delete from below." />
+          <hr />
+        </>
       ) : currentUser ? (
         <ReviewCreateForm
           profile_id={currentUser.profile_id}
@@ -61,7 +64,6 @@ const TrackPage = () => {
       ) : null}
 
       {/* reviews list */}
-      <hr/>
       {reviews.results.length ? (
         <InfiniteScroll
           children={reviews.results.map((review) => (
@@ -78,9 +80,9 @@ const TrackPage = () => {
           next={() => fetchMoreData(reviews, setReviews)}
         />
       ) : currentUser ? (
-        <span>No one has reviewed this track yet.</span>
+        <Asset message="No one has reviewed this track yet." />
       ) : (
-        <span>No reviews yet, sign in/up to add your own!</span>
+        <Asset message="No reviews yet, sign in/up to add your own!" />
       )}
     </div>
   );

@@ -13,7 +13,7 @@ const Asset = ({ spinner, src, message }) => {
         </Spinner>
       )}
       {src && <img src={src} alt={message} />}
-      {message && <p>{message}</p>}
+      {message && <p className={styles.Message}>{message}</p>}
     </div>
   );
 };
