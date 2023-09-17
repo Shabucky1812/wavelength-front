@@ -13,7 +13,7 @@ function ReviewCreateForm(props) {
   const { track, setTrack, setReviews } = props;
   const [reviewData, setReviewData] = useState({
     opinion: "",
-    score: null,
+    score: "",
   });
 
   const { opinion, score } = reviewData;

@@ -1,0 +1,48 @@
+.ProfileContainer {
+    max-width: 900px;
+}
+
+.ProfileHeader {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: #262C29;
+    border: 1px solid #F18F01;
+    border-radius: 8px;
+}
+
+.ProfileAvatar {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+}
+
+.Owner {
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.StatsRow {
+    padding: 30px 30px 0 30px;
+}
+
+.StatsCol {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-style: italic;
+    padding: 0;
+}
+
+.StatNumber {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.TracksTitle {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-style: italic;
+}
