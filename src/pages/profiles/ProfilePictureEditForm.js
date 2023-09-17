@@ -15,6 +15,11 @@ import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
 
+/**
+ * ProfilePictureEditForm component - used to render the profile picture edit form.
+ * 
+ * @returns profile picture edit form within a container
+ */
 const ProfilePictureEditForm = () => {
   const [errors, setErrors] = useState([]);
   const setCurrentUser = useSetCurrentUser();
@@ -25,6 +30,9 @@ const ProfilePictureEditForm = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    /**
+     * fetches relevant profile information and sets state accordingly
+     */
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/profiles/${id}`);
@@ -39,6 +47,10 @@ const ProfilePictureEditForm = () => {
     handleMount();
   }, [history, id]);
 
+  /**
+   * 
+   * @param {*} event 
+   */
   const handleChangeProfilePicture = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(profilePicture);

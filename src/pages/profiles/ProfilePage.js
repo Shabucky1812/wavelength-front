@@ -15,8 +15,13 @@ import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Image } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
 
+/**
+ * ProfilePage component - used to render a user's profile page
+ *
+ * @returns profile page within a container
+ */
 const ProfilePage = () => {
   const [profile, setProfile] = useState({ results: [] });
   const [profileTracks, setProfileTracks] = useState({ results: [] });
@@ -25,6 +30,12 @@ const ProfilePage = () => {
   const is_owner = currentUser?.username === profile?.owner;
   const { id } = useParams();
 
+  /**
+   * creates a follower instance with the current user following the clicked
+   * user profile
+   *
+   * @param {dict} clickedProfile - info about the clicked profile
+   */
   const handleFollow = async (clickedProfile) => {
     try {
       const { data } = await axiosRes.post(`/followers/`, {
@@ -42,6 +53,12 @@ const ProfilePage = () => {
     }
   };
 
+  /**
+   * removes the follower instance relevant to the current user and the clicked
+   * user profile
+   *
+   * @param {dict} clickedProfile - info about the clicked profile
+   */
   const handleUnfollow = async (clickedProfile) => {
     try {
       await axiosRes.delete(`/followers/${clickedProfile.following_id}/`);
@@ -58,6 +75,9 @@ const ProfilePage = () => {
   };
 
   useEffect(() => {
+    /**
+     * fetches relevant profile and tracks data
+     */
     const fetchData = async () => {
       try {
         const [{ data: profile }, { data: tracks }] = await Promise.all([
@@ -109,6 +129,7 @@ const ProfilePage = () => {
                   <p>following</p>
                 </Col>
               </Row>
+              {/* renders follow/unfollow button if user is logged in and not owner of profile */}
               {currentUser &&
                 !is_owner &&
                 (profile.following_id ? (
@@ -131,7 +152,9 @@ const ProfilePage = () => {
           </Row>
           <hr />
           <Container>
-            <p className={styles.TracksTitle}>{profile?.owner}'s Shared Tracks:</p>
+            <p className={styles.TracksTitle}>
+              {profile?.owner}'s Shared Tracks:
+            </p>
             {profileTracks?.results.length ? (
               <InfiniteScroll
                 children={profileTracks.results.map((track) => (

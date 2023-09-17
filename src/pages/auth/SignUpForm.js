@@ -41,9 +41,9 @@ const SignUpForm = () => {
   };
 
   /**
-   * prevents default behaviour and attempts to submit form data to login endpoint.
-   * sets current user data and redirects user upon successful login, sets errors
-   * if the sign in fails.
+   * prevents default behaviour and attempts to submit form data to sign up endpoint.
+   * sets current user data and redirects user upon successful sign up, sets errors
+   * if the sign up fails.
    */
   const handleSubmit = async (event) => {
     event.preventDefault();

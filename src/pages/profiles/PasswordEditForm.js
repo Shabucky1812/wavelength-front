@@ -11,6 +11,11 @@ import Alert from "react-bootstrap/Alert";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 
+/**
+ * PasswordEditForm component - used to render the password edit form
+ * 
+ * @returns password edit form within a container element
+ */
 const PasswordEditForm = () => {
   const [errors, setErrors] = useState({});
   const history = useHistory();
@@ -23,6 +28,9 @@ const PasswordEditForm = () => {
   });
   const { new_password1, new_password2 } = userData;
 
+  /**
+   * handles changes to form values and sets state accordingly
+   */
   const handleChange = (event) => {
     setUserData({
       ...userData,
@@ -36,6 +44,11 @@ const PasswordEditForm = () => {
     }
   }, [currentUser, history, id]);
 
+  /**
+   * prevents default behaviour and attempts to submit form data to password change endpoint.
+   * sets current user data and redirects user upon successful password change, sets errors
+   * if the change fails.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
