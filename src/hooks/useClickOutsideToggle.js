@@ -1,5 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
+/**
+ * custom hook that collapses the expandable navbar on clicking out/on an link
+ *
+ * @returns current state of navbar
+ */
 const useClickOutsideToggle = () => {
   const [expanded, setExpanded] = useState(false);
   const ref = useRef(null);
@@ -17,7 +22,7 @@ const useClickOutsideToggle = () => {
     };
   }, [ref]);
 
-  return { expanded, setExpanded, ref }
+  return { expanded, setExpanded, ref };
 };
 
 export default useClickOutsideToggle;
