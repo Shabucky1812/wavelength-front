@@ -1,7 +1,11 @@
+/* general styling */
+
+/* ensures the background fills the screen */
 html {
     height: -webkit-fill-available;
 }
 
+/* applies basic font styling and background color */
 .App {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
@@ -10,10 +14,12 @@ html {
     color: #E0E2DB;
 }
 
+/* pushed main content below navbar */
 .Main {
     padding-top: 100px;
 }
 
+/* applies general styling to links */
 a {
     text-decoration: none;
     padding-left: 12px;
@@ -22,15 +28,18 @@ a {
     transition: ease-in-out color 0.3s;
 }
 
+/* adds some space to all icons */
 i {
     padding-right: 5px;
 }
 
+/* add hover effect to all links */
 a:hover {
     color: #F18F01; 
     text-decoration: none;
 }
 
+/* style all hr elements */
 hr {
     border-top: 2px dashed #08B1C4;
     width: 100%;
