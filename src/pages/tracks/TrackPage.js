@@ -10,6 +10,13 @@ import ReviewCreateForm from "../reviews/ReviewCreateForm";
 import Review from "../reviews/Review";
 import Asset from "../../components/Asset";
 
+/**
+ * TrackPage component - renders information to be diplayed on the Track detail page.
+ * Diplays the relevant track and it's reviews alongside a conditionally rendered review
+ * create form.
+ *
+ * @returns all the track page content within a div element
+ */
 const TrackPage = () => {
   const { id } = useParams();
   const [track, setTrack] = useState({ results: [] });
@@ -19,6 +26,9 @@ const TrackPage = () => {
   const [userReview, setUserReview] = useState([]);
 
   useEffect(() => {
+    /**
+     * Fetches relevant track and review data and updates state accordingly
+     */
     const handleMount = async () => {
       try {
         const [{ data: track }, { data: reviews }] = await Promise.all([

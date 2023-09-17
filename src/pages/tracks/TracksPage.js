@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { fetchMoreData } from "../../utils/utils";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import InfiniteScroll from "react-infinite-scroll-component";
 // css links
 import styles from "../../styles/TracksPage.module.css";
 // react-bootstrap components
@@ -12,9 +14,15 @@ import Form from "react-bootstrap/Form";
 // custom components
 import Track from "./Track";
 import Asset from "../../components/Asset";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+/**
+ * TracksPage component - used to return a list view of shared tracks based on the filters applied.
+ *
+ * @param {string} message - text to be displayed if a search returns no data
+ * @param {string} filter - filter value to be applied based on which page the user is on
+ *
+ * @returns a search bar and genre filter above the list view of tracks all within a react fragment.
+ */
 const TracksPage = ({ message, filter = "" }) => {
   const [tracks, setTracks] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -24,6 +32,9 @@ const TracksPage = ({ message, filter = "" }) => {
   const currentUser = useCurrentUser();
 
   useEffect(() => {
+    /**
+     * fetches tracks based on filters applied and updates state accordingly
+     */
     const fetchTracks = async () => {
       try {
         const { data } = await axiosReq.get(
@@ -37,6 +48,7 @@ const TracksPage = ({ message, filter = "" }) => {
     };
 
     setHasLoaded(false);
+    // searches on a half second timer to prevent rapid requests
     const timer = setTimeout(() => {
       fetchTracks();
     }, 500);

@@ -12,6 +12,11 @@ import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
 
+/**
+ * TrackCreateForm component - renders a form used to create new track instances
+ *
+ * @returns track create form within a div element
+ */
 const TrackCreateForm = () => {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
@@ -28,6 +33,9 @@ const TrackCreateForm = () => {
   const imageInput = useRef(null);
   const history = useHistory();
 
+  /**
+   * handles changes to form values and sets state accordingly
+   */
   const handleChange = (event) => {
     setTrackData({
       ...trackData,
@@ -35,6 +43,9 @@ const TrackCreateForm = () => {
     });
   };
 
+  /**
+   * handles changes to the cover art field
+   */
   const handleChangeCoverArt = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(cover_art);
@@ -45,6 +56,10 @@ const TrackCreateForm = () => {
     }
   };
 
+  /**
+   * prevents default behaviour and attempts to submit form data to tracks endpoint.
+   * redirects user upon successful creation, sets errors if the creation fails.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();

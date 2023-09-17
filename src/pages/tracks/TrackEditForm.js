@@ -14,6 +14,11 @@ import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
 
+/**
+ * TrackEditForm component - renders form used to edit an existing track
+ *
+ * @returns track edit form within a div element
+ */
 const TrackEditForm = () => {
   const [errors, setErrors] = useState({});
 
@@ -31,6 +36,9 @@ const TrackEditForm = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    /**
+     * fetches relevant track info and sets it to state
+     */
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/tracks/${id}`);
@@ -47,6 +55,9 @@ const TrackEditForm = () => {
     handleMount();
   }, [history, id]);
 
+  /**
+   * handles changes to form fields
+   */
   const handleChange = (event) => {
     setTrackData({
       ...trackData,
@@ -54,6 +65,9 @@ const TrackEditForm = () => {
     });
   };
 
+  /**
+   * handles changes to the cover art field
+   */
   const handleChangeCoverArt = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(cover_art);
@@ -64,6 +78,10 @@ const TrackEditForm = () => {
     }
   };
 
+  /**
+   * prevents default behaviour and attempts to submit form data to tracks edit endpoint.
+   * redirects user upon successful edit, sets errors if the edit fails.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
