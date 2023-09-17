@@ -8,6 +8,13 @@ import btnStyles from "../../styles/Button.module.css";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 
+/**
+ * ReviewEditForm component - used to render the review edit form.
+ *
+ * @param {dict} props - contains review id and relevant functions to update state.
+ *
+ * @returns review edit form within a form element
+ */
 function ReviewEditForm(props) {
   const { id, prevOpinion, prevScore, setReviews, setTrack, setShowEditForm } =
     props;
@@ -17,14 +24,25 @@ function ReviewEditForm(props) {
 
   const [errors, setErrors] = useState({});
 
+  /**
+   * handles changes to the opinion field
+   */
   const handleChangeOpinion = (event) => {
     setFormOpinion(event.target.value);
   };
 
+  /**
+   * handles changes to the score field
+   */
   const handleChangeScore = (event) => {
     setFormScore(event.target.value);
   };
 
+  /**
+   * prevents default behaviour and attempts to submit form data to review edit endpoint.
+   * updates review and track data upon successful review editing, sets errors
+   * if the edit fails.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -105,10 +123,16 @@ function ReviewEditForm(props) {
       ))}
 
       <div className={styles.EditButtons}>
-      <button type="submit" className={btnStyles.Btn}>Save</button>
-      <button type="button" className={`${btnStyles.Btn} ${btnStyles.Cancel}`} onClick={() => setShowEditForm(false)}>
-        Cancel
-      </button>
+        <button type="submit" className={btnStyles.Btn}>
+          Save
+        </button>
+        <button
+          type="button"
+          className={`${btnStyles.Btn} ${btnStyles.Cancel}`}
+          onClick={() => setShowEditForm(false)}
+        >
+          Cancel
+        </button>
       </div>
     </Form>
   );

@@ -9,6 +9,14 @@ import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
 
+/**
+ * ReviewCreateForm component - used to create a review for a track
+ *
+ * @param {dict} props - contains track and functions needed for updating info upon
+ * review creation
+ *
+ * @returns review create form within a container element
+ */
 function ReviewCreateForm(props) {
   const { track, setTrack, setReviews } = props;
   const [reviewData, setReviewData] = useState({
@@ -19,6 +27,9 @@ function ReviewCreateForm(props) {
   const { opinion, score } = reviewData;
   const [errors, setErrors] = useState({});
 
+  /**
+   * handles changes to form values and sets state accordingly
+   */
   const handleChange = (event) => {
     setReviewData({
       ...reviewData,
@@ -26,6 +37,11 @@ function ReviewCreateForm(props) {
     });
   };
 
+  /**
+   * prevents default behaviour and attempts to submit form data to review create endpoint.
+   * sets review and track data upon successful review creation, sets errors
+   * if the creation fails.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

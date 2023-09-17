@@ -2,14 +2,21 @@ import React, { useState } from "react";
 import styles from "../../styles/Review.module.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { MoreDropdown } from "../../components/MoreDropdown";
+import { axiosRes } from "../../api/axiosDefaults";
 // custom components
 import Avatar from "../../components/Avatar";
 import ReviewEditForm from "./ReviewEditForm";
 // react-bootstrap components
 import Media from "react-bootstrap/Media";
-import { MoreDropdown } from "../../components/MoreDropdown";
-import { axiosRes } from "../../api/axiosDefaults";
 
+/**
+ * Review component - used to render each review for a track.
+ *
+ * @param {dict} props - dictionary containing review info
+ *
+ * @returns div containing review info and access to dropdown for owner
+ */
 const Review = (props) => {
   const {
     profile_id,
@@ -28,6 +35,11 @@ const Review = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
+  /**
+   * Delete function to be passed to the dropdown. Finds relevant review
+   * and makes a request to the delete review endpoint. Updates review information
+   * and track information based on the deletion.
+   */
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/reviews/${id}`);
@@ -64,7 +76,9 @@ const Review = (props) => {
           <Avatar src={profile_image} />
         </Link>
         <Media.Body className={styles.Body}>
-          <span className={styles.Header}>{owner} - {reviewed_at}</span>
+          <span className={styles.Header}>
+            {owner} - {reviewed_at}
+          </span>
           {showEditForm ? (
             <ReviewEditForm
               id={id}
