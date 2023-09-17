@@ -1,3 +1,6 @@
+/* styles the track component */
+
+/* styles the card background */
 .CardBackground {
     background-color: #262C29;
     border: solid 4px #08B1C4;
@@ -5,11 +8,13 @@
     margin-bottom: 20px;
 }
 
+/* colours the header of the track card */
 .Header {
     border: none;
     background-color: #08B1C4;
 }
 
+/* changes colour of header text for contrast against the header blue */
 .HeaderText {
     color: #2E3532;
     font-style: italic;
@@ -17,17 +22,20 @@
     padding-right: 10px;
 }
 
+/* pushes updated_at value to the right */
 .RightHeader {
     float: right;
     padding-top: 15px;
 }
 
+/* pushed the dropdown element to the right and places it lower */
 .Dropdown {
     float: right;
     color: #2E3532;
     line-height: 3;
 }
 
+/* centers the track information */
 .InfoContainer {
     display: flex;
     flex-direction: column;
@@ -38,15 +46,18 @@
     padding-bottom: 20px;
 }
 
+/* provides a minimum space between each info box */
 .InfoBox {
     min-height: 50px;
 }
 
+/* styles track title + artist */
 .Title {
     font-weight: 900;
     font-size: 1.5rem;
 }
 
+/* styles genre subtitle */
 .Subtitle {
     font-weight: 700;
     font-size: 1.25rem;
@@ -54,51 +65,63 @@
     text-transform: uppercase;
 }
 
+/* italicizes opinion text */
 .Opinion {
     font-style: italic;
 }
 
+/* styles score text */
 .ScoreText {
     font-weight: 700;
     font-size: 1.2rem;
     text-transform: uppercase;
 }
 
+/* further increases size of score value */
 .Score {
     font-size: 1.5rem;
     font-style: italic;
 }
 
+/* pushes review count text below score */
 .ReviewCount { 
     display: block;
 }
 
+/* spaces cover art */
 .CoverArtLink {
     padding-left: 0;
 }
 
+/* caps size of cover art */
 .CoverArt {
     max-height: 500px;
     border-radius: 10px;
 }
 
+/* styling for smaller screens */
 @media screen and (max-width: 575px) {
+    /* reduces space around avatar */
     .ProfileAvatar {
         padding-left: 0;
     }
 
+    /* shrinks size of header text */
     .HeaderText {
         font-size: 0.9rem;
     }
 
+    /* reduces space around updated_at text */
     .RightHeader {
         padding-top: 0;
     }
 
+    /* raises dropdown slightly */
     .Dropdown {
         line-height: 1.5;
     }
 
+    /* shrinks updated_at text */
     .UpdatedTimeText {
         font-size: 0.6rem;
     }

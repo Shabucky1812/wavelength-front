@@ -1,16 +1,22 @@
+/* styling for the NavBar */
+
+/* styles the navbar background */
 .NavBar {
     background-color: #262C29;
     border-bottom: 1px solid #F18F01;
 }
 
+/* prevents the navbar from expanding too much on larger screens */
 .Container {
     max-width: 1600px;
 }
 
+/* styles the link relevant to the user's current location */
 .Active {
     color: #FEA520;
 }
 
+/* styling for each link */
 .Link {
     font-weight: 700;
     font-style: italic;
@@ -19,6 +25,7 @@
     line-height: 2.8;
 }
 
+/* unique styling for the share track link */
 .ShareTrack {
     border-radius: 6px;
     border: #FEA520 dashed 2px;
@@ -26,37 +33,46 @@
     text-transform: uppercase;
 }
 
+/* adds a bit of space to the toggler */
 .Toggler {
     padding: 4px;
 }
 
+/* styles the main website title */
 h1 {
     font-weight: 900;
     text-transform: uppercase;
     color: #E0E2DB;
 }
 
+/* styling for middle size screens */
 @media screen and (max-width: 1145px) {
+    /* slightly reduces size of main title */
     h1 {
         font-size: 1.8rem;
     }
 
+    /* slightly reduces size of links */
     .Link {
         font-size: 1rem;
         padding-left: 6px;
     }
 }
 
+/* styling for small screens */
 @media screen and (max-width: 575px) {
+    /* further reduces main title size */
     h1 {
         font-size: 1.1rem;
     }
 
+    /* reduces padding to navbar */
     .NavBar {
         padding-left: 0;
         padding-right: 10px;
     }
 
+    /* reduces size of share track link */
     .ShareTrack {
         font-size: 0.6rem;
         padding: 0 4px;

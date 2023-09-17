@@ -1,3 +1,6 @@
+/* styles the sign in/up forms */
+
+/* styles the unique sign up background */
 .SignUpBackground {
     width: 100%;
     min-height: 750px;
@@ -6,6 +9,7 @@
     padding: 6vh 10%;
 }
 
+/* styles the unique sign in background */
 .SignInBackground {
     width: 100%;
     min-height: 600px;

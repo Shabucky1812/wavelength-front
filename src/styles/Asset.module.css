@@ -1,7 +1,10 @@
+/* styles for the asset component */
+
 .Asset {
     text-align: center;
 }
 
+/* styles for the spinner */
 .Spinner {
     height: 5rem;
     width: 5rem;
@@ -9,6 +12,7 @@
     color: #F18F01;
 }
 
+/* styles for the text displayed when a message is passed to the component */
 .Message {
     font-size: 1.2rem;
     font-weight: 700;

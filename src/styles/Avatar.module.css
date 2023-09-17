@@ -1,9 +1,13 @@
+/* styles for the avatar component */
+
+/* ensures the image is a circle and that it fits centrally */
 .Avatar {
 border-radius: 50%;
 object-fit: cover;
 margin-right: 5px;
 }
 
+/* styles to limit the avatar size on smaller screens */
 @media screen and (max-width: 575px) {
     .Avatar {
         height: 30px;

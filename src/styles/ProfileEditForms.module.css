@@ -1,3 +1,6 @@
+/* styling for the profile edit form */
+
+/* provides a wrapper for the profile picture edit form */
 .ProfileImage {
     text-align: center;
     border: 2px dashed #08B1C4;
@@ -5,8 +8,10 @@
     margin: 20px 8%;
 }
 
+/* styles the label that allows the user to change their profile image */
 .ChangeImage {
     padding-bottom: 10px;
+    /* height and width values ensure the user can click anywhere within the element to change the image */
     width: 100%;
     height: 100%;
     text-transform: uppercase;
@@ -14,16 +19,19 @@
     font-size: 1.2rem;
 }
 
+/* caps the width of each profile edit form */
 .ProfileFormGroup {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
 
+/* aligns the buttons div to the centre */
 .Buttons {
     text-align: center;
 }
 
+/* adds a small bit of space between the cancel and save buttons */
 .Buttons button {
     margin: 5px 5px 0 5px;
 }

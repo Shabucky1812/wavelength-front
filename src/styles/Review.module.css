@@ -1,3 +1,6 @@
+/* styles each review below a track */
+
+/* styles the review area/background */
 .ReviewBackground {
     border: 2px solid #FEA520;
     border-radius: 5px 0;
@@ -10,11 +13,13 @@
     background-color: #262C29;
 }
 
+/* adds some space to the media body */
 .Body {
     padding-left: 10px;
     border-left: 1px dashed #FEA520;
 }
 
+/* styles the review header */
 .Header {
     line-height: 2;
     font-size: 1.2rem;
@@ -22,6 +27,7 @@
     display: block;
 }
 
+/* spaces the review opinion */
 .Opinion {
     font-style: italic;
     max-width: 600px;
@@ -29,6 +35,7 @@
     margin-right: 10px;
 }
 
+/* sizes the review score */
 .Score {
     font-size: 1.2rem;
     font-weight: 700;

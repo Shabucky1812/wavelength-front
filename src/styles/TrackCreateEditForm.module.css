@@ -1,8 +1,12 @@
+/* styling for the track create and edit forms */
+
+/* spaces the track form background */
 .TrackFormBackground {
     max-width: 1000px;
     padding: 6vh 10%;
 }
 
+/* styles the cover art field */
 .CoverArt {
     text-align: center;
     border: 2px dashed #08B1C4;
@@ -10,6 +14,7 @@
     margin: 20px 8%;
 }
 
+/* styles the empty cover art field */
 .AddImage {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -20,11 +25,13 @@
     font-size: 1.2rem;
 }
 
+/* spaces the icon within the addImage area */
 .AddImage i {
     display: block;
     margin-bottom: 8px;
 }
 
+/* styles the cover art field once an image is already uploaded */
 .ChangeImage {
     padding-bottom: 10px;
     width: 100%;
@@ -34,10 +41,12 @@
     font-size: 1.2rem;
 }
 
+/* centers buttons div */
 .Buttons {
     text-align: center;
 }
 
+/* adds space around each button */
 .Buttons button {
     margin: 5px 5px 0 5px;
 }

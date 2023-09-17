@@ -1,7 +1,11 @@
+/* styles for the profile page */
+
+/* caps the width of the profile page container */
 .ProfileContainer {
     max-width: 900px;
 }
 
+/* styles the profile header area */
 .ProfileHeader {
     margin-left: auto;
     margin-right: auto;
@@ -13,21 +17,26 @@
     border-radius: 8px;
 }
 
+/* provides styling to the profile avatar */
+/* this styling is used instead of the Avatar component to prevent the avatar reducing in size on smaller screens */
 .ProfileAvatar {
     height: 120px;
     width: 120px;
     border-radius: 50%;
 }
 
+/* styles owner text */
 .Owner {
     font-weight: 700;
     margin-top: 5px;
 }
 
+/* spaces the stats row */
 .StatsRow {
     padding: 30px 30px 0 30px;
 }
 
+/* styles each element within the stats row */
 .StatsCol {
     font-weight: 700;
     text-transform: uppercase;
@@ -35,11 +44,13 @@
     padding: 0;
 }
 
+/* increases the size of each stat number */
 .StatNumber {
     font-size: 1.5rem;
     font-weight: 900;
 }
 
+/* styles the title above the tracks list */
 .TracksTitle {
     font-size: 1.2rem;
     text-transform: uppercase;
