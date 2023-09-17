@@ -17,22 +17,31 @@ import Container from "react-bootstrap/Container";
 // react-router-dom NavLink
 import { NavLink } from "react-router-dom";
 
+/**
+ * NavBar component - used to render wavelength's navbar
+ *
+ * @returns the navbar content within a react-bootstrap NavBar element
+ */
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
-  const {expanded, setExpanded, ref} = useClickOutsideToggle()
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
+  /**
+   * signs the current user out and stops the site from attempting to refresh access tokens.
+   */
   const handleSignOut = async () => {
     try {
       await axios.post("/dj-rest-auth/logout");
       setCurrentUser(null);
-      removeTokenTimestamp()
+      removeTokenTimestamp();
     } catch (err) {
       // console.log(err)
     }
   };
 
+  // jsx for the share track navbar icon
   const shareTrackIcon = (
     <>
       <NavLink
@@ -43,8 +52,9 @@ const NavBar = () => {
         <i className="fa-solid fa-plus fa-lg"></i>Share Track
       </NavLink>
     </>
-  )
+  );
 
+  // icons to be displayed to logged in users
   const loggedInIcons = (
     <>
       <NavLink
@@ -73,6 +83,7 @@ const NavBar = () => {
     </>
   );
 
+  // icons to be displayed to logged out users
   const loggedOutIcons = (
     <>
       <NavLink
@@ -107,6 +118,7 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
         {currentUser && shareTrackIcon}
+        {/* navbar toggle element handles collapsing navbar on smaller screens */}
         <Navbar.Toggle
           onClick={() => setExpanded(!expanded)}
           ref={ref}

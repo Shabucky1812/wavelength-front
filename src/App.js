@@ -2,6 +2,7 @@ import { useCurrentUser } from "./contexts/CurrentUserContext";
 // app css
 import styles from "./App.module.css";
 // components
+import Asset from "./components/Asset";
 import NavBar from "./components/NavBar";
 // auth pages
 import SignInForm from "./pages/auth/SignInForm";
@@ -65,7 +66,7 @@ function App() {
           <Route exact path="/profiles/:id/edit/username" render={() => <UsernameEditForm />} />
           <Route exact path="/profiles/:id/edit/password" render={() => <PasswordEditForm />} />
           {/* 404 Route */}
-          <Route render={() => <p>Page not found!</p>} />
+          <Route render={() => <Asset message="We couldn't find what you're looking for :(" />} />
         </Switch>
       </Container>
     </div>
