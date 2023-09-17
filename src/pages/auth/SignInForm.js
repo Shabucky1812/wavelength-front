@@ -13,9 +13,14 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 
+/**
+ * SignInForm component - used to render the sign in form
+ *
+ * @returns sign in form
+ */
 const SignInForm = () => {
-  const setCurrentUser = useSetCurrentUser()
-  useRedirect('loggedIn')
+  const setCurrentUser = useSetCurrentUser();
+  useRedirect("loggedIn");
 
   const [signInData, setSignInData] = useState({
     username: "",
@@ -23,10 +28,13 @@ const SignInForm = () => {
   });
   const { username, password } = signInData;
 
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState({});
 
   const history = useHistory();
 
+  /**
+   * handles changes to form values and sets state accordingly
+   */
   const handleChange = (event) => {
     setSignInData({
       ...signInData,
@@ -34,12 +42,17 @@ const SignInForm = () => {
     });
   };
 
+  /**
+   * prevents default behaviour and attempts to submit form data to login endpoint.
+   * sets current user data and redirects user upon successful login, sets errors
+   * if the sign in fails.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const {data} = await axios.post("/dj-rest-auth/login/", signInData);
-      setCurrentUser(data.user)
-      setTokenTimestamp(data)
+      const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+      setCurrentUser(data.user);
+      setTokenTimestamp(data);
       history.goBack();
     } catch (err) {
       setErrors(err.response?.data);

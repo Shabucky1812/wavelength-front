@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useRedirect } from "../../hooks/useRedirect";
 import axios from "axios";
 // css links
 import styles from "../../styles/SignInUpForm.module.css";
@@ -9,10 +10,14 @@ import formStyles from "../../styles/Form.module.css";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
-import { useRedirect } from "../../hooks/useRedirect";
 
+/**
+ * SignUpForm component - used to render the sign up form
+ *
+ * @returns sign up form
+ */
 const SignUpForm = () => {
-  useRedirect('loggedIn')
+  useRedirect("loggedIn");
 
   const [signUpData, setSignUpData] = useState({
     username: "",
@@ -25,6 +30,9 @@ const SignUpForm = () => {
 
   const history = useHistory();
 
+  /**
+   * handles changes to form values and sets state accordingly
+   */
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
@@ -32,6 +40,11 @@ const SignUpForm = () => {
     });
   };
 
+  /**
+   * prevents default behaviour and attempts to submit form data to login endpoint.
+   * sets current user data and redirects user upon successful login, sets errors
+   * if the sign in fails.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -84,7 +97,9 @@ const SignUpForm = () => {
 
           {/* password2 field */}
           <Form.Group controlId="password2">
-            <Form.Label className={formStyles.Label}>Confirm password:</Form.Label>
+            <Form.Label className={formStyles.Label}>
+              Confirm password:
+            </Form.Label>
             <Form.Control
               type="password"
               placeholder="Confirm password"
