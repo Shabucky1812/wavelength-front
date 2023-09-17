@@ -48,8 +48,7 @@ const ProfilePictureEditForm = () => {
   }, [history, id]);
 
   /**
-   * 
-   * @param {*} event 
+   * handles changes to the profile image field
    */
   const handleChangeProfilePicture = (event) => {
     if (event.target.files.length) {
@@ -58,6 +57,11 @@ const ProfilePictureEditForm = () => {
     }
   };
 
+  /**
+   * prevents default behaviour and attempts to submit form data to profile endpoint.
+   * sets current user data and redirects user upon successful submit, sets errors
+   * if the submit fails.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();

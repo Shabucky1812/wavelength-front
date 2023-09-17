@@ -9,11 +9,26 @@ import btnStyles from "../../styles/Button.module.css";
 // custom components
 import Avatar from "../../components/Avatar";
 
+/**
+ * ProfilePreview component - used to display previews of each profile on the
+ * Profile Search page.
+ * 
+ * @param {dict} profile - relevant profile data
+ * @param {function} setProfile - function used to update profile data on follow/unfollow
+ * 
+ * @returns profile preview within a div element
+ */
 const ProfilePreview = ({ profile, setProfiles }) => {
   const { id, following_id, image, owner, tracks_count } = profile;
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
+  /**
+   * creates a follower instance with the current user following the clicked
+   * user profile
+   *
+   * @param {dict} clickedProfile - info about the clicked profile
+   */
   const handleFollow = async (clickedProfile) => {
     try {
       const { data } = await axiosRes.post(`/followers/`, {
@@ -29,6 +44,12 @@ const ProfilePreview = ({ profile, setProfiles }) => {
     }
   };
 
+  /**
+   * removes the follower instance relevant to the current user and the clicked
+   * user profile
+   *
+   * @param {dict} clickedProfile - info about the clicked profile
+   */
   const handleUnfollow = async (clickedProfile) => {
     try {
         await axiosRes.delete(`/followers/${clickedProfile.following_id}`)

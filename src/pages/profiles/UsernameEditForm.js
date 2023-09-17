@@ -14,6 +14,11 @@ import Alert from "react-bootstrap/Alert";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 
+/**
+ * UsernameEditForm component - used to render the username edit form
+ * 
+ * @returns username edit form within a container
+ */
 const UsernameEditForm = () => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
@@ -32,6 +37,11 @@ const UsernameEditForm = () => {
     }
   }, [currentUser, history, id]);
 
+  /**
+   * prevents default behaviour and attempts to submit form data to profile endpoint.
+   * sets current user data and redirects user upon successful submit, sets errors
+   * if the submit fails.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
