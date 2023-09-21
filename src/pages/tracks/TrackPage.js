@@ -69,8 +69,6 @@ const TrackPage = () => {
           setTrack={setTrack}
           setReviews={setReviews}
         />
-      ) : reviews.results.length ? (
-        "Reviews"
       ) : null}
 
       {/* reviews list */}
