@@ -128,6 +128,11 @@ As Wavelength is a social media site, I wanted the colour scheme to be simple an
 
 ### Typography:
 
+Wavelength uses only one font from [Google Fonts](https://fonts.google.com/):  
+- Montserrat:
+    ![Montserrat font from Google Fonts]()
+    The montserrat font is used for all text throughout the site. To provide some variation, different headers and important bits of text are different font-weights (400 - for basic text, 700 - for important text, 900 - for main h1) and some are italic. I like this font for Wavelength because it is modern and easily-readable. I also like how the different font weights provide contrast and help guide the user.
+
 ## Features  
 
 ### Existing Features:  
