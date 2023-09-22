@@ -136,6 +136,79 @@ Wavelength uses only one font from [Google Fonts](https://fonts.google.com/):
 ## Features  
 
 ### Existing Features:  
+- __F01 - Navbar (Logged Out)__  
+    ![Wavelength Navbar - logged out and large screen](/documentation/readme/nav-logged-out-exp.png)  
+    ![Wavelength Navbar - logged out and small screen](/documentation/readme/nav-logged-out-col.png)  
+    One of the most important features of the Wavelength website is the Navbar. The navbar is fixed to the top of the screen and present on all pages throughout the site. It is the tool that allows the user to access almost all of the site's pages and also reminds them where they currently are. On larger screens, the navbar is expanded (image 1 - top), and on smaller screens, the navbar collapses (image 2 - bottom). When the user is logged out, the navbar, as seen above, lets them view the discover, sign in, and sign up pages. When the user hovers over a link, a small transition effect turns the link orange and it returns to normal when the cursor leaves. The active link remains orange at all times, for example, in the images above, the discover link is orange because the user is on the discover page. Additionally, the main 'WAVELENGTH' h1 also serves as a link to the discover page.
+
+- __F02 - Navbar (Logged In)__  
+    ![Wavelength Navbar - logged in and large screen](/documentation/readme/nav-logged-in-exp.png)  
+    ![Wavelength Navbar - logged in and small screen](/documentation/readme/nav-logged-in-col.png)  
+    Once the user is authenticated, the navbar updates to the state shown above. The sign in and sign up links are removed an new options are presented. Firstly, a new share track link is revealed, which takes the user to the share track form (see F07 for details). Additionally, the following new links are rendered:
+        - Feed - similar to the discover page, except only tracks by profiles the user is following are listed.
+        - Search - a search page for the user to look for other profiles.
+        - Sign Out - signs the user out and returns them to the home (discover) page as an unauthenticated user.
+        - Profile - takes the user to their own profile page, this link appears alongside the user's current profile image as extra confirmation to the user that they are signed in.
+
+- __F03 - Sign Up Form__  
+    ![Sign up form](/documentation/readme/sign-up-form.png)  
+    The sign up form allows a new user to create a Wavelength profile. It functions as you would expect a typical sign up form to work and takes a username input, and two password inputs (one for confirmation, as is standard). Should the user attempt to sign up with any invalid data, the form will render relevant error messages in response to the failed sign up and let the user try again. Upon successfully signing up for a new account, the user is redirected to the sign in page. Additionally, if a logged in user attempts to access the sign up form, they will be automatically redirected to the discover page, as the content is irrelevant to them.
+
+- __F04 - Sign In Form__  
+    ![Sign in form](/documentation/readme/sign-in-form.png)  
+    Much like the sign up form, the sign in form works as expected. It takes a username and password input and attempts to log the user in with the data provided. If the data is invalid, the form communicated the errors in the same way as the sign up form. Logged in users are once more redirected to the discover page upon trying to reach the sign in form.
+
+- __F05 - Tracks Search Bar__  
+    ![Search bar for tracks](/documentation/readme/tracks-search-bar.png)  
+    At the top of both the discover and feed pages are two filtering options, the first of which is the tracks search bar. A user can enter text into the search bar and (after a half second delay, for better UX), the tracks will be filtered by the input value. They are searched by track title, artist, and owner, and if no results are found, a simple message is displayed to the user, telling them to adjust the filters.
+
+- __F06 - Genre Filter__  
+    ![Genre filter for tracks](/documentation/readme/genre-filter.png)  
+    ![Expanded genre filter](/documentation/readme/genre-filter-exp.png)  
+    The second filtering option present on the discover and feed pages is the genre filter as seen above (second image shows available options). Users can use this dropdown to filter tracks by genre. If no tracks are returned, once more a simple message telling the user to adjust the filters is displayed. Users can filter the tracks using both the search bar and genre filter at the same time (if they are on the feed page, the tracks will also be filtered by profiles the user follows). As a general note around the tracks list, regardless of filters, the tracks returned are always displayed with the most recently uploaded/edited appearing first.
+
+- __F07 - Share Track Form__  
+    ![Form used to share a new track](/documentation/readme/share-track-form.png)  
+    feature7
+
+- __F08 - Track__  
+    ![The Track component](/documentation/readme/track.png)  
+    feature8
+
+- __F09 - Edit Track Form__  
+    ![Edit track form](/documentation/readme/edit-track-form.png)  
+    feature9
+
+- __F10 - Review Create Form__  
+    ![Form used to review a track](/documentation/readme/review-create-form.png)  
+    ![Already reviewed message](/documentation/readme/already-reviewed.png)  
+    feature10
+
+- __F11 - Reviews__  
+    ![List of reviews under a track](/documentation/readme/reviews.png)  
+    feature11
+
+- __F12 - Edit Review Form__  
+    ![Form used to edit reviews](/documentation/readme/edit-review-form.png)  
+    feature12
+
+- __F13 - Profiles Search Bar__  
+    ![Search bar for profiles on the search page](/documentation/readme/profiles-search-bar.png)  
+    feature13
+
+- __F14 - Profile Previews__  
+    ![List of profiles on search page](/documentation/readme/profile-previews.png)  
+    feature14
+
+- __F15 - Profile Page__  
+    ![Example of another user's profile page](/documentation/readme/profile-page.png)  
+    feature15
+
+- __F16 - Profile Edit Forms__  
+    ![Profile picture edit form](/documentation/readme/edit-profile-image-form.png)  
+    ![Profile username edit form](/documentation/readme/edit-profile-username-form.png)  
+    ![Profile password edit form](/documentation/readme/edit-profile-password-form.png)  
+    feature16
 
 ### Future Implementations:  
 
