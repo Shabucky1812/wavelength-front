@@ -122,6 +122,10 @@ be structured and plan how a user would traverse through the site.
 
 ### Colour Scheme:  
 
+Wavelength uses the following colour palette, generated using [Coolors](https://coolors.co/):  
+![Wavelength colour palette.](/documentation/readme/coolors.png)  
+As Wavelength is a social media site, I wanted the colour scheme to be simple and to create a cozy, dark-mode, kind of vibe. To achieve this, the only main colour used on the site is a dark grey (Onyx - #2E3532), this colour is used as the main background colour throughout with a slightly darker shade being used as the background of certain components (e.g. navbar, tracks, reviews). For the main text of the site to have suitable contrast, I chose a cloudy white (Alabaster - #E0E2DB) which is used for most of the site's text. The remaining colours are used to add a little more interest to the site and also to subtly provide information to the user, for example active nav links remain the orange (Carrot Orange - #F18F01) shade to remind the user where they are located. The blue (Moonstone - #08B1C4) is mainly used for the Track component, as it stands out nicely against the orange.
+
 ### Typography:
 
 ## Features  
