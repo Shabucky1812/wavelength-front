@@ -186,29 +186,29 @@ Wavelength uses only one font from [Google Fonts](https://fonts.google.com/):
 
 - __F11 - Reviews__  
     ![List of reviews under a track](/documentation/readme/reviews.png)  
-    feature11
+    The final feature present on a track's detail page is a list of all the track's reviews. If no one has reviewed the track yet, a message similar to the 'already reviewed' message from F10 is displayed with different text ('No one has reviewed this track yet'). If the track has been reviewed, each review will be listed within their own media container, marked by the orange border. For each review, the owner's profile picture is displayed to the left, once again functioning as a link to the relevant profile page. The body of the review shows: the owner's username alongside how long ago the review was created/edited, the owner's opinion, and the score. Also, if the current user is the owner of the review, a dropdown will be present at the top right of the review. Much like the track dropdown, the owner can access the delete review option - which deletes the review (same as before, no confirmation as of now), and the edit review option - see F12 below for details.
 
 - __F12 - Edit Review Form__  
     ![Form used to edit reviews](/documentation/readme/edit-review-form.png)  
-    feature12
+    Upon clicking the edit review option from the dropdown, the above review edit form will be rendered within the review, replacing the opinion and score text. The owner can use it to edit the data of their review, with both fields acting as before (F10). The cancel button removes the form and returns the review to the state it was in before. The save button attempts to update the review. If the data is invalid, this is communicated as usual.
 
 - __F13 - Profiles Search Bar__  
     ![Search bar for profiles on the search page](/documentation/readme/profiles-search-bar.png)  
-    feature13
+    When visiting the search page, the user will first see the profiles search bar, shown above. This search bar functions similarly to the tracks search bar (F05). The user enters text and after a half second delay, the profiles list below (F14) will be searched by the query. If no results are found, a quick message is shown to the user asking them to adjust their search.
 
 - __F14 - Profile Previews__  
     ![List of profiles on search page](/documentation/readme/profile-previews.png)  
-    feature14
+    Below the search bar, all the created profiles are listed in a preview format, with the most followed accounts being returned first. Each preview shows the profile picture, username, and number of shared tracks of the profile it represents. A user can click on the profile picture to be taken to the profile's page. Additionally, follow/unfollow buttons are present to the right of each preview except for the one that represents the currently logged in user, as you cannot follow yourself. Users can use these buttons to follow or unfollow other accounts, editing their feed.
 
 - __F15 - Profile Page__  
     ![Example of another user's profile page](/documentation/readme/profile-page.png)  
-    feature15
+    Should a user visit another user's profile page, the above content will be rendered. The profile header (contained by the orange border) displays the profile owner's profile picture alongside some stats (number of: tracks, followers, following). If the current user is unauthenticated, they are not shown the follow/unfollow button, and if they are the owner of the profile, they are instead shown a dropdown which lets them access the profile edit forms (F16). Finally, below the header, the profile owner's shared tracks are listed.
 
 - __F16 - Profile Edit Forms__  
     ![Profile picture edit form](/documentation/readme/edit-profile-image-form.png)  
     ![Profile username edit form](/documentation/readme/edit-profile-username-form.png)  
     ![Profile password edit form](/documentation/readme/edit-profile-password-form.png)  
-    feature16
+    From the profile edit forms dropdown referenced above, a user can access forms to edit their: profile picture, username, and password. These forms can all be seen above and are mostly self-explanatory. The profile image form preview functions in the same way as the cover art preview in the share and edit track forms (F07, F09).
 
 ### Future Implementations:  
 
