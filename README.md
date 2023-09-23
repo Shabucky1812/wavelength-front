@@ -227,6 +227,40 @@ In terms of future development, Wavelength could be improved in a number of ways
 
 ## Deployment
 
+To clone this repository paste `git clone https://github.com/Shabucky1812/wavelength-front.git` into the terminal of the editor you are using. Then follow the steps below to get everything up and running.
+
+### How to make and push changes:  
+- To view a local version of the website, use the command `npm start` in your workspace terminal and click **Open Browser** on the pop-up that appears.
+- If you wish to make any changes to the code then you can use git to save and push those changes using the following steps:
+    - Save your changes to a file using _*CTRL + S*_.
+    - In the terminal type `git add .` to push all changes or you can use `*git add 'file_name_here'` to be more specific.
+    - Commit your changes using `git commit -m "'commit_message_here'"`.
+    - Finally, push your changes to your main GitHub repository using `git push`.
+
+### Deploy with Heroku:  
+- Follow these steps to deploy the website to Heroku.  
+- Use this link to log-in/sign-up to [Heroku](https://id.heroku.com/login).
+- From the Heroku dashboard, select the **New** dropdown from the top-right, and then click **Create new app**.
+- Enter a name into the **App name** input, select your region from the **Region** dropdown, and then click **Create app**.
+- From the tabs near the top of the screen, select **Deploy**.
+- Under the **Deployment method** sub-heading, select **GitHub**.
+- Search for the GitHub repo for your application and then click **Connect**.
+- You can now deploy your application in two ways:
+    - Select **Enable Automatic Deploys** to automatically deploy your program. This means that whenever a change is pushed, Heroku will automatically update your live app.
+    - This project was manually deployed by selecting **Deploy Branch** under the **Manual Deploy** sub-heading. A manually deployed site will only update with new pushes when re-deployed next.
+- Once Heroku has deployed your application, it will present you with a link to the live site.
+
+### Connecting to your Backend:
+Your live site should now be up and running fine, however it will still be connected to the main wavelength-api. Follow these steps to connect your frontend to your own backend:
+- Firstly, follow the deployment steps from the wavelength-api if you have not done so already: [Link to API deployment](https://github.com/Shabucky1812/wavelength-api#deployment).
+- As mentioned in those steps, you will now be able to set the **CLIENT_ORIGIN** and **CLIENT_ORIGIN_DEV** config vars for your API:
+    - Copy the live link of your newly deployed frontend and use that as the value of the **CLIENT_ORIGIN** variable.
+    - From your frontend workspace, open a preview and copy the preview url. Use this as the value of the **CLIENT_ORIGIN_DEV** variable.
+- Finally, back in your frontend workspace locate the **axiosDefaults.js** file (/src/api/axiosDefaults.js).
+- Within this file, you will find this line: `axios.defaults.baseURL = "https://wavelength-api-37226842e140.herokuapp.com/"`.
+- To tell your frontend to interact with YOUR backend, change this url to the live url of your deployed API, make sure there is a trailing forward slash at the end.
+- Now, simply redeploy your frontend website and it should be running and connected to your backend.
+
 ## Testing
 
 Please find the testing write-up for this project in [this Testing Document](testing.md).
