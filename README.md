@@ -221,9 +221,27 @@ In terms of future development, Wavelength could be improved in a number of ways
 
 ### Languages Used:  
 
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)  
+- [CSS3](https://en.wikipedia.org/wiki/CSS)  
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)  
+
 ### Frameworks, Libraries, and Programs Used:  
 
+- [React](https://react.dev/) - Wavelength's main JS framework.  
+- [React Bootstrap](https://react-bootstrap.github.io/) - Additional styling framework designed to be used with React.  
+- [React Infinite Scroll Component](https://www.npmjs.com/package/react-infinite-scroll-component) - Used for smooth pagination.  
+- [React Router](https://reactrouter.com/en/main) - Used for the site's navigation.  
+- [JWT](https://jwt.io/) - Web tokens used for industry standard authentication.  
+- [axios](https://axios-http.com/docs/intro) - Used to communicate with the wavelength-api.  
+- [Google Fonts](https://fonts.google.com/) - Used to provide the font (Montserrat) used by the website.  
 - [Balsamiq](https://balsamiq.com/) - Used to create front-end wireframes during planning of this website.  
+- [Font Awesome](https://fontawesome.com/) - Used to provide additional icons for the website.  
+- [favicon.io](https://favicon.io/favicon-generator/) - Used to create the favicon used by the website.  
+- [Heroku](https://www.heroku.com/) - Used to deploy and host the website.  
+- [Git](https://git-scm.com/) - Used for this website's version control.  
+- [GitHub](https://github.com/) - Used to create this website's main repository and manage this project's kanban board.  
+- [Pexels](https://www.pexels.com/) - Used to provide the sign in and sign up background images.  
+- [Am I Responsive?](https://ui.dev/amiresponsive) - used to create README website responsiveness image.  
 
 ## Deployment
 
@@ -259,6 +277,7 @@ Your live site should now be up and running fine, however it will still be conne
 - Finally, back in your frontend workspace locate the **axiosDefaults.js** file (/src/api/axiosDefaults.js).
 - Within this file, you will find this line: `axios.defaults.baseURL = "https://wavelength-api-37226842e140.herokuapp.com/"`.
 - To tell your frontend to interact with YOUR backend, change this url to the live url of your deployed API, make sure there is a trailing forward slash at the end.
+- Add, commit, and push your changes.
 - Now, simply redeploy your frontend website and it should be running and connected to your backend.
 
 ## Testing
