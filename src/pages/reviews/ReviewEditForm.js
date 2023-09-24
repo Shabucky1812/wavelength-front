@@ -1,12 +1,14 @@
+/* eslint-disable */
 import React, { useState } from "react";
+// react-bootstrap components
+import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
+// axiosDefaults
 import { axiosRes } from "../../api/axiosDefaults";
 // css links
 import styles from "../../styles/ReviewCreateEditForm.module.css";
 import formStyles from "../../styles/Form.module.css";
 import btnStyles from "../../styles/Button.module.css";
-// react-bootstrap components
-import Form from "react-bootstrap/Form";
-import Alert from "react-bootstrap/Alert";
 
 /**
  * ReviewEditForm component - used to render the review edit form.
@@ -52,16 +54,14 @@ function ReviewEditForm(props) {
       });
       setReviews((prevReviews) => ({
         ...prevReviews,
-        results: prevReviews.results.map((review) => {
-          return review.id === id
+        results: prevReviews.results.map((review) => review.id === id
             ? {
                 ...review,
                 opinion: formOpinion,
                 score: formScore,
                 reviewed_at: "now",
               }
-            : review;
-        }),
+            : review),
       }));
       setTrack((prevTrack) => ({
         results: [

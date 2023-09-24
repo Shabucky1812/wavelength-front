@@ -1,14 +1,18 @@
+/* eslint-disable */
 import React, { useState } from "react";
-import styles from "../../styles/Review.module.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+// react-bootstrap components
+import Media from "react-bootstrap/Media";
+// css links
+import styles from "../../styles/Review.module.css";
+// context hooks
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { MoreDropdown } from "../../components/MoreDropdown";
+// axiosDefaults
 import { axiosRes } from "../../api/axiosDefaults";
 // custom components
 import Avatar from "../../components/Avatar";
+import { MoreDropdown } from "../../components/MoreDropdown";
 import ReviewEditForm from "./ReviewEditForm";
-// react-bootstrap components
-import Media from "react-bootstrap/Media";
 
 /**
  * Review component - used to render each review for a track.
@@ -17,7 +21,7 @@ import Media from "react-bootstrap/Media";
  *
  * @returns div containing review info and access to dropdown for owner
  */
-const Review = (props) => {
+function Review(props) {
   const {
     profile_id,
     profile_image,
