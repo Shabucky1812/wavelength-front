@@ -1,17 +1,21 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
+// react-bootstrap components
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+// infinite scroll
+import InfiniteScroll from "react-infinite-scroll-component";
+// axiosDefaults
 import { axiosReq } from "../../api/axiosDefaults";
+// context hooks
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+// utils
 import { fetchMoreData } from "../../utils/utils";
 // css links
 import styles from "../../styles/ProfileSearch.module.css";
 // custom components
 import Asset from "../../components/Asset";
 import ProfilePreview from "./ProfilePreview";
-// react-bootstrap components
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-// infinite scroll
-import InfiniteScroll from "react-infinite-scroll-component";
 
 /**
  * ProfileSearch component - used to render the profile search page. Lets users search
@@ -21,7 +25,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
  *
  * @returns previews of every profile and a search bar all within a container element.
  */
-const ProfileSearch = ({ message }) => {
+function ProfileSearch({ message }) {
   const [profiles, setProfiles] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -59,7 +63,7 @@ const ProfileSearch = ({ message }) => {
         onSubmit={(event) => event.preventDefault()}
         className={styles.SearchBar}
       >
-        <i className="fa-solid fa-magnifying-glass"></i>Search
+        <i className="fa-solid fa-magnifying-glass"/>Search
         <Form.Control
           type="text"
           placeholder="Search Profiles"

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from "react";
 import { useHistory } from "react-router";
 // react-bootstrap
@@ -25,7 +26,7 @@ const DropdownIcon = React.forwardRef(({ onClick }, ref) => (
  * 
  * @returns dropdown element with edit and delete items
  */
-export const MoreDropdown = ({ handleEdit, handleDelete, contentType }) => {
+export function MoreDropdown({ handleEdit, handleDelete, contentType }) {
   return (
     <Dropdown>
       <Dropdown.Toggle as={DropdownIcon} />

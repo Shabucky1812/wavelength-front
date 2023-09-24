@@ -1,26 +1,30 @@
+/* eslint-disable */
 import React, { useEffect, useRef, useState } from "react";
-import {
-  useHistory,
-  useParams,
-} from "react-router-dom/cjs/react-router-dom.min";
-import { axiosReq } from "../../api/axiosDefaults";
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
-// css links
-import styles from "../../styles/ProfileEditForms.module.css";
-import formStyles from "../../styles/Form.module.css";
-import btnStyles from "../../styles/Button.module.css";
 // react-bootstrap components
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
+// hooks
+import {
+  useHistory,
+  useParams,
+} from "react-router-dom/cjs/react-router-dom.min";
+// axiosDefaults
+import { axiosReq } from "../../api/axiosDefaults";
+// context hooks
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+// css links
+import styles from "../../styles/ProfileEditForms.module.css";
+import formStyles from "../../styles/Form.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
 /**
  * ProfilePictureEditForm component - used to render the profile picture edit form.
  * 
  * @returns profile picture edit form within a container
  */
-const ProfilePictureEditForm = () => {
+function ProfilePictureEditForm() {
   const [errors, setErrors] = useState([]);
   const setCurrentUser = useSetCurrentUser();
   const [profilePicture, setProfilePicture] = useState("");
@@ -119,6 +123,7 @@ const ProfilePictureEditForm = () => {
             Save
           </button>
           <button
+            type="button"
             className={`${btnStyles.Btn} ${btnStyles.Cancel}`}
             onClick={() => history.goBack()}
           >

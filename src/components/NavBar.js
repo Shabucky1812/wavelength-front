@@ -1,28 +1,30 @@
 import React from "react";
 import axios from "axios";
-import {
-  useCurrentUser,
-  useSetCurrentUser,
-} from "../contexts/CurrentUserContext";
-import { removeTokenTimestamp } from "../utils/utils";
-import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
-// css link
-import styles from "../styles/NavBar.module.css";
-// custom components
-import Avatar from "./Avatar";
 // react-bootstrap components
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 // react-router-dom NavLink
 import { NavLink } from "react-router-dom";
+// JWT utils
+import { removeTokenTimestamp } from "../utils/utils";
+// css link
+import styles from "../styles/NavBar.module.css";
+// custom components
+import Avatar from "./Avatar";
+// custom hooks
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
 
 /**
  * NavBar component - used to render wavelength's navbar
  *
  * @returns the navbar content within a react-bootstrap NavBar element
  */
-const NavBar = () => {
+function NavBar() {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
@@ -43,15 +45,14 @@ const NavBar = () => {
 
   // jsx for the share track navbar icon
   const shareTrackIcon = (
-    <>
-      <NavLink
-        to="/tracks/create"
-        className={`${styles.Link} ${styles.ShareTrack}`}
-        activeClassName={styles.Active}
-      >
-        <i className="fa-solid fa-plus fa-lg"></i>Share Track
-      </NavLink>
-    </>
+    <NavLink
+      to="/tracks/create"
+      className={`${styles.Link} ${styles.ShareTrack}`}
+      activeClassName={styles.Active}
+    >
+      <i className="fa-solid fa-plus fa-lg" />
+      Share Track
+    </NavLink>
   );
 
   // icons to be displayed to logged in users
@@ -62,17 +63,20 @@ const NavBar = () => {
         className={styles.Link}
         activeClassName={styles.Active}
       >
-        <i className="fa-solid fa-heart"></i>Feed
+        <i className="fa-solid fa-heart" />
+        Feed
       </NavLink>
       <NavLink
         to="/search"
         className={styles.Link}
         activeClassName={styles.Active}
       >
-        <i className="fa-solid fa-magnifying-glass"></i>Search
+        <i className="fa-solid fa-magnifying-glass" />
+        Search
       </NavLink>
       <NavLink to="/" className={styles.Link} onClick={handleSignOut}>
-        <i className="fa-regular fa-circle-xmark"></i>Sign Out
+        <i className="fa-regular fa-circle-xmark" />
+        Sign Out
       </NavLink>
       <NavLink
         to={`/profiles/${currentUser?.profile_id}`}
@@ -91,14 +95,16 @@ const NavBar = () => {
         className={styles.Link}
         activeClassName={styles.Active}
       >
-        <i className="fa-solid fa-arrow-right-to-bracket"></i>Sign In
+        <i className="fa-solid fa-arrow-right-to-bracket" />
+        Sign In
       </NavLink>
       <NavLink
         to="/signup"
         className={styles.Link}
         activeClassName={styles.Active}
       >
-        <i className="fa-solid fa-user-plus"></i>Sign Up
+        <i className="fa-solid fa-user-plus" />
+        Sign Up
       </NavLink>
     </>
   );
@@ -133,7 +139,8 @@ const NavBar = () => {
               activeClassName={styles.Active}
               exact
             >
-              <i className="fa-solid fa-music"></i>Discover
+              <i className="fa-solid fa-music" />
+              Discover
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
@@ -141,6 +148,6 @@ const NavBar = () => {
       </Container>
     </Navbar>
   );
-};
+}
 
 export default NavBar;

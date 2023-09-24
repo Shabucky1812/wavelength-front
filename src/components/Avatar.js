@@ -12,7 +12,7 @@ import styles from "../styles/Avatar.module.css";
  *
  * @returns user's profile image within a span element
  */
-const Avatar = ({ src, height = 45, text }) => {
+function Avatar ({ src, height = 45, text }) {
   return (
     <span>
       <img

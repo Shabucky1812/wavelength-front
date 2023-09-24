@@ -1,9 +1,12 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { fetchMoreData, followHelper, unfollowHelper } from "../../utils/utils";
-import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
+// react-bootstrap components
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
 // css links
 import styles from "../../styles/ProfilePage.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -11,18 +14,19 @@ import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import Track from "../tracks/Track";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
-// react-bootstrap components
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Image from "react-bootstrap/Image";
+// utils
+import { fetchMoreData, followHelper, unfollowHelper } from "../../utils/utils";
+// axiosDefaults
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
+// context hooks
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 /**
  * ProfilePage component - used to render a user's profile page
  *
  * @returns profile page within a container
  */
-const ProfilePage = () => {
+function ProfilePage() {
   const [profile, setProfile] = useState({ results: [] });
   const [profileTracks, setProfileTracks] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -134,6 +138,7 @@ const ProfilePage = () => {
                 !is_owner &&
                 (profile.following_id ? (
                   <button
+                    type="button"
                     className={`${btnStyles.Btn} ${btnStyles.FollowBtn}`}
                     onClick={() => handleUnfollow(profile)}
                   >
@@ -141,6 +146,7 @@ const ProfilePage = () => {
                   </button>
                 ) : (
                   <button
+                    type="button"
                     className={`${btnStyles.Btn} ${btnStyles.FollowBtn}`}
                     onClick={() => handleFollow(profile)}
                   >

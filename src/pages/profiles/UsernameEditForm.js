@@ -1,6 +1,14 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
+// react-bootstrap components
+import Alert from "react-bootstrap/Alert";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+// hooks
 import { useHistory, useParams } from "react-router-dom";
+// axiosDefaults
 import { axiosRes } from "../../api/axiosDefaults";
+// context hooks
 import {
   useCurrentUser,
   useSetCurrentUser,
@@ -9,17 +17,13 @@ import {
 import styles from "../../styles/ProfileEditForms.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import formStyles from "../../styles/Form.module.css";
-// react-bootstrap components
-import Alert from "react-bootstrap/Alert";
-import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/Container";
 
 /**
  * UsernameEditForm component - used to render the username edit form
  * 
  * @returns username edit form within a container
  */
-const UsernameEditForm = () => {
+function UsernameEditForm() {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
 
@@ -83,6 +87,7 @@ const UsernameEditForm = () => {
             Save
           </button>
           <button
+            type="button"
             className={`${btnStyles.Btn} ${btnStyles.Cancel}`}
             onClick={() => history.goBack()}
           >

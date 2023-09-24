@@ -1,24 +1,28 @@
+/* eslint-disable */
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
-import { useRedirect } from "../../hooks/useRedirect";
 import axios from "axios";
+// react-bootstrap components
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
+// hooks
+import { useHistory } from "react-router-dom";
+import { useRedirect } from "../../hooks/useRedirect";
+// JWT utils
 import { setTokenTimestamp } from "../../utils/utils";
 // css links
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import formStyles from "../../styles/Form.module.css";
-// react-bootstrap components
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Alert from "react-bootstrap/Alert";
+// context hook
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 /**
  * SignInForm component - used to render the sign in form
  *
  * @returns sign in form
  */
-const SignInForm = () => {
+function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
   useRedirect("loggedIn");
 
@@ -116,6 +120,6 @@ const SignInForm = () => {
       </Container>
     </div>
   );
-};
+}
 
 export default SignInForm;

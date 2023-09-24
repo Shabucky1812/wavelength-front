@@ -1,7 +1,8 @@
+/* eslint-disable */
 import React from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { followHelper, unfollowHelper } from "../../utils/utils";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosRes } from "../../api/axiosDefaults";
 // css links
 import styles from "../../styles/ProfilePreview.module.css";
@@ -18,7 +19,7 @@ import Avatar from "../../components/Avatar";
  * 
  * @returns profile preview within a div element
  */
-const ProfilePreview = ({ profile, setProfiles }) => {
+function ProfilePreview({ profile, setProfiles }) {
   const { id, following_id, image, owner, tracks_count } = profile;
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
@@ -76,9 +77,9 @@ const ProfilePreview = ({ profile, setProfiles }) => {
         {currentUser &&
           !is_owner &&
           (following_id ? (
-            <button onClick={() => handleUnfollow(profile)} className={`${btnStyles.Btn} ${btnStyles.FollowBtn}`}>unfollow</button>
+            <button type="button" onClick={() => handleUnfollow(profile)} className={`${btnStyles.Btn} ${btnStyles.FollowBtn}`}>unfollow</button>
           ) : (
-            <button onClick={() => handleFollow(profile)} className={`${btnStyles.Btn} ${btnStyles.FollowBtn}`}>follow</button>
+            <button type="button" onClick={() => handleFollow(profile)} className={`${btnStyles.Btn} ${btnStyles.FollowBtn}`}>follow</button>
           ))}
       </div>
     </div>

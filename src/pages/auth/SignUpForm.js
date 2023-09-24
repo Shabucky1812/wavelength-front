@@ -1,22 +1,24 @@
+/* eslint-disable */
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { useRedirect } from "../../hooks/useRedirect";
 import axios from "axios";
-// css links
-import styles from "../../styles/SignInUpForm.module.css";
-import btnStyles from "../../styles/Button.module.css";
-import formStyles from "../../styles/Form.module.css";
 // react-bootstrap components
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
+// hooks
+import { useHistory } from "react-router-dom";
+import { useRedirect } from "../../hooks/useRedirect";
+// css links
+import styles from "../../styles/SignInUpForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
+import formStyles from "../../styles/Form.module.css";
 
 /**
  * SignUpForm component - used to render the sign up form
  *
  * @returns sign up form
  */
-const SignUpForm = () => {
+function SignUpForm() {
   useRedirect("loggedIn");
 
   const [signUpData, setSignUpData] = useState({

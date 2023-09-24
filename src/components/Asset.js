@@ -1,8 +1,8 @@
 import React from 'react';
-// css link
-import styles from '../styles/Asset.module.css';
 // react-bootstrap components
 import Spinner from 'react-bootstrap/Spinner';
+// css link
+import styles from '../styles/Asset.module.css';
 
 /**
  * Asset component - used to display various messages throughout the application,
@@ -15,7 +15,7 @@ import Spinner from 'react-bootstrap/Spinner';
  *
  * @returns relevant content based on props within a div element.
  */
-const Asset = ({ spinner, src, message }) => {
+function Asset({ spinner, src, message }) {
   return (
     <div className={styles.Asset}>
       {spinner && (
@@ -27,6 +27,6 @@ const Asset = ({ spinner, src, message }) => {
       {message && <p className={styles.Message}>{message}</p>}
     </div>
   );
-};
+}
 
 export default Asset;

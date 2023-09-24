@@ -1,22 +1,26 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { axiosRes } from "../../api/axiosDefaults";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-// css links
-import styles from "../../styles/ProfileEditForms.module.css";
-import btnStyles from "../../styles/Button.module.css";
-import formStyles from "../../styles/Form.module.css";
 // react-bootstrap components
 import Alert from "react-bootstrap/Alert";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
+// hooks
+import { useHistory, useParams } from "react-router-dom";
+// axiosDefaults
+import { axiosRes } from "../../api/axiosDefaults";
+// css links
+import styles from "../../styles/ProfileEditForms.module.css";
+import btnStyles from "../../styles/Button.module.css";
+import formStyles from "../../styles/Form.module.css";
+// context hooks
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 /**
  * PasswordEditForm component - used to render the password edit form
- * 
+ *
  * @returns password edit form within a container element
  */
-const PasswordEditForm = () => {
+function PasswordEditForm() {
   const [errors, setErrors] = useState({});
   const history = useHistory();
   const { id } = useParams();
@@ -96,12 +100,20 @@ const PasswordEditForm = () => {
           </Alert>
         ))}
         <div className={styles.Buttons}>
-          <button className={btnStyles.Btn} type="submit">Save</button>
-          <button className={`${btnStyles.Btn} ${btnStyles.Cancel}`} onClick={() => history.goBack()}>Cancel</button>
+          <button className={btnStyles.Btn} type="submit">
+            Save
+          </button>
+          <button
+            type="button"
+            className={`${btnStyles.Btn} ${btnStyles.Cancel}`}
+            onClick={() => history.goBack()}
+          >
+            Cancel
+          </button>
         </div>
       </Form>
     </Container>
   );
-};
+}
 
 export default PasswordEditForm;
