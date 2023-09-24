@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { rest } from "msw";
 
 const baseURL = "https://wavelength-api-37226842e140.herokuapp.com/";

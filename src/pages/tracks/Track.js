@@ -1,16 +1,19 @@
+/* eslint-disable */
 import React from "react";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+// react-bootstrap components
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+// context hooks
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+// axiosDefaults
 import { axiosRes } from "../../api/axiosDefaults";
 // css link
 import styles from "../../styles/Track.module.css";
 // custom components
 import { MoreDropdown } from "../../components/MoreDropdown";
 import Avatar from "../../components/Avatar";
-// react-bootstrap components
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 
 /**
  * Track component - renders informations about a track to be displayed throughout the site.
@@ -20,7 +23,7 @@ import Row from "react-bootstrap/Row";
  *
  * @returns track info rendered within a card element
  */
-const Track = (props) => {
+function Track(props) {
   const {
     artist,
     average_score,
@@ -109,10 +112,10 @@ const Track = (props) => {
               <Card.Text className={styles.ScoreText}>
                 Score:{" "}
                 <span className={styles.Score}>
-                  {average_score ? average_score : "Not yet scored"}
+                  {average_score || "Not yet scored"}
                 </span>
                 <span className={styles.ReviewCount}>
-                  <i className="fa-regular fa-comment-dots"></i>
+                  <i className="fa-regular fa-comment-dots"/>
                   {reviews_count} reviews
                 </span>
               </Card.Text>

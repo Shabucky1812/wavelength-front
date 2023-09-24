@@ -1,16 +1,21 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
-import { axiosReq } from "../../api/axiosDefaults";
-import { fetchMoreData } from "../../utils/utils";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import InfiniteScroll from "react-infinite-scroll-component";
-// css links
-import styles from "../../styles/TracksPage.module.css";
 // react-bootstrap components
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
+// hooks
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+// axiosDefaults
+import { axiosReq } from "../../api/axiosDefaults";
+// utils
+import { fetchMoreData } from "../../utils/utils";
+// context hooks
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+// css links
+import styles from "../../styles/TracksPage.module.css";
 // custom components
 import Track from "./Track";
 import Asset from "../../components/Asset";
@@ -23,7 +28,7 @@ import Asset from "../../components/Asset";
  *
  * @returns a search bar and genre filter above the list view of tracks all within a react fragment.
  */
-const TracksPage = ({ message, filter = "" }) => {
+function TracksPage({ message, filter = "" }) {
   const [tracks, setTracks] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const [genre, setGenre] = useState("");
@@ -61,7 +66,7 @@ const TracksPage = ({ message, filter = "" }) => {
     <>
       <Row className={styles.FilterRow}>
         <Col xs={6} md={8}>
-          <i className="fa-solid fa-magnifying-glass"></i>Search
+          <i className="fa-solid fa-magnifying-glass"/>Search
           <Form onSubmit={(event) => event.preventDefault()}>
             <Form.Control
               type="text"
@@ -80,7 +85,7 @@ const TracksPage = ({ message, filter = "" }) => {
               value={genre}
               onChange={(event) => setGenre(event.target.value)}
             >
-              <option value={""}>No filter</option>
+              <option value="">No filter</option>
               <option value={1}>Pop</option>
               <option value={2}>Rock</option>
               <option value={3}>Hip-Hop</option>

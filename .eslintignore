@@ -11,3 +11,16 @@
 # Review.js
 # ReviewCreateForm.js
 # ReviewEditForm.js
+# App.js
+# App.test.js
+# Track.js
+# TrackCreateForm.js
+# TrackEditForm.js
+# TrackPage.js
+# TracksPage.js
+# CurrentUserContext.js
+# useRedirect.js
+# handlers.js
+# index.js
+# setupTests.js
+# utils.js

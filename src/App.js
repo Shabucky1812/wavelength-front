@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 // app css
 import styles from "./App.module.css";

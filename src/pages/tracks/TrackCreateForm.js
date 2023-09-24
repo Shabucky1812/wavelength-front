@@ -1,23 +1,26 @@
+/* eslint-disable */
 import React, { useRef, useState } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { useRedirect } from "../../hooks/useRedirect";
-import { axiosReq } from "../../api/axiosDefaults";
-// css links
-import styles from "../../styles/TrackCreateEditForm.module.css";
-import btnStyles from "../../styles/Button.module.css";
-import formStyles from "../../styles/Form.module.css";
 // react-bootstrap components
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
+// hooks
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useRedirect } from "../../hooks/useRedirect";
+// axiosDefaults
+import { axiosReq } from "../../api/axiosDefaults";
+// css links
+import styles from "../../styles/TrackCreateEditForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
+import formStyles from "../../styles/Form.module.css";
 
 /**
  * TrackCreateForm component - renders a form used to create new track instances
  *
  * @returns track create form within a div element
  */
-const TrackCreateForm = () => {
+function TrackCreateForm() {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
 
@@ -122,24 +125,19 @@ const TrackCreateForm = () => {
           {/* cover art field */}
           <Form.Group className={styles.CoverArt}>
             {cover_art ? (
-              <>
-                <Form.Label
-                  className={styles.ChangeImage}
-                  htmlFor="image-upload"
-                >
-                  <figure className={formStyles.ImagePreviewWrapper}>
-                    <Image
-                      src={cover_art}
-                      alt="example track cover art"
-                      className={formStyles.ImagePreview}
-                    />
-                  </figure>
-                  Click/Tap to Change
-                </Form.Label>
-              </>
+              <Form.Label className={styles.ChangeImage} htmlFor="image-upload">
+                <figure className={formStyles.ImagePreviewWrapper}>
+                  <Image
+                    src={cover_art}
+                    alt="example track cover art"
+                    className={formStyles.ImagePreview}
+                  />
+                </figure>
+                Click/Tap to Change
+              </Form.Label>
             ) : (
               <Form.Label className={styles.AddImage} htmlFor="image-upload">
-                <i className="fa-solid fa-plus fa-xl"></i>
+                <i className="fa-solid fa-plus fa-xl" />
                 Add Image
               </Form.Label>
             )}
@@ -213,6 +211,7 @@ const TrackCreateForm = () => {
               Share
             </button>
             <button
+              type="button"
               onClick={() => history.goBack()}
               className={`${btnStyles.Btn} ${btnStyles.Cancel}`}
             >
@@ -223,6 +222,6 @@ const TrackCreateForm = () => {
       </Container>
     </div>
   );
-};
+}
 
 export default TrackCreateForm;

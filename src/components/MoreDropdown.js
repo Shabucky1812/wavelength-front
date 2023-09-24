@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from "react";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 // react-bootstrap
 import Dropdown from "react-bootstrap/Dropdown";
 

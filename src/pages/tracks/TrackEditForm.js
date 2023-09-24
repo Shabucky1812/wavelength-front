@@ -1,25 +1,28 @@
+/* eslint-disable */
 import React, { useEffect, useRef, useState } from "react";
-import {
-  useHistory,
-  useParams,
-} from "react-router-dom/cjs/react-router-dom.min";
-import { axiosReq } from "../../api/axiosDefaults";
-// css links
-import styles from "../../styles/TrackCreateEditForm.module.css";
-import formStyles from "../../styles/Form.module.css";
-import btnStyles from "../../styles/Button.module.css";
 // react-bootstrap components
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
+// hooks
+import {
+  useHistory,
+  useParams,
+} from "react-router-dom/cjs/react-router-dom.min";
+// axiosDefaults
+import { axiosReq } from "../../api/axiosDefaults";
+// css links
+import styles from "../../styles/TrackCreateEditForm.module.css";
+import formStyles from "../../styles/Form.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
 /**
  * TrackEditForm component - renders form used to edit an existing track
  *
  * @returns track edit form within a div element
  */
-const TrackEditForm = () => {
+function TrackEditForm() {
   const [errors, setErrors] = useState({});
 
   const [trackData, setTrackData] = useState({
@@ -225,6 +228,7 @@ const TrackEditForm = () => {
               Save
             </button>
             <button
+              type="button"
               onClick={() => history.goBack()}
               className={`${btnStyles.Btn} ${btnStyles.Cancel}`}
             >

@@ -1,9 +1,10 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { fetchMoreData } from "../../utils/utils";
-import InfiniteScroll from "react-infinite-scroll-component";
 // custom components
 import Track from "./Track";
 import ReviewCreateForm from "../reviews/ReviewCreateForm";
@@ -17,7 +18,7 @@ import Asset from "../../components/Asset";
  *
  * @returns all the track page content within a div element
  */
-const TrackPage = () => {
+function TrackPage() {
   const { id } = useParams();
   const [track, setTrack] = useState({ results: [] });
   const currentUser = useCurrentUser();
@@ -56,7 +57,7 @@ const TrackPage = () => {
       <Track {...track.results[0]} trackPage />
       {/* review form (create/edit) */}
       <hr />
-      {!!userReview.length ? (
+      {userReview.length ? (
         <>
           <Asset message="You have already reviewed this Track. Edit/Delete from below." />
           <hr />
