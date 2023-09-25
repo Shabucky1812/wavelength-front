@@ -6,22 +6,22 @@
 All of the HTML written for this website was validated using [this HTML validator](https://validator.w3.org/).  
 
 #### Discover/Feed Pages:
-![HTML validator results for discover/feed pages]()  
+![HTML validator results for discover/feed pages](/documentation/testing/html-discover-page.png)  
 
 #### Search Page:
-![HTML validator results for search page]()  
+![HTML validator results for search page](/documentation/testing/html-search-page.png)  
 
 #### Profile Page:
-![HTML validator results for profile page]()  
+![HTML validator results for profile page](/documentation/testing/html-profile-page.png)  
 
 #### Share Track Page:
-![HTML validator results for share track page]()  
+![HTML validator results for share track page](/documentation/testing/html-share-track-page.png)  
 
 #### Sign In Page:
-![HTML validator results for sign in page]()  
+![HTML validator results for sign in page](/documentation/testing/html-sign-in-page.png)  
 
 #### Sign Up Page:
-![HTML validator results for sign up page]()  
+![HTML validator results for sign up page](/documentation/testing/html-sign-up-page.png)  
 
 ### CSS validation:  
 
