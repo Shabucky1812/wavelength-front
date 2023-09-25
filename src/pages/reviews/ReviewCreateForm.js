@@ -89,8 +89,9 @@ function ReviewCreateForm(props) {
         <Form onSubmit={handleSubmit} className={formStyles.Form}>
           {/* opinion field */}
           <Form.Group>
-            <Form.Label className={formStyles.Label}>Opinion:</Form.Label>
+            <Form.Label htmlFor="opinion" className={formStyles.Label}>Opinion:</Form.Label>
             <Form.Control
+              id="opinion"
               placeholder="my review..."
               as="textarea"
               name="opinion"
@@ -107,8 +108,9 @@ function ReviewCreateForm(props) {
 
           {/* score field */}
           <Form.Group>
-            <Form.Label className={formStyles.Label}>Score:</Form.Label>
+            <Form.Label htmlFor="score" className={formStyles.Label}>Score:</Form.Label>
             <Form.Control
+              id="score"
               type="number"
               name="score"
               value={score}

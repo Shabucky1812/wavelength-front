@@ -92,8 +92,9 @@ function TrackCreateForm() {
         <Form className={formStyles.Form} onSubmit={handleSubmit}>
           {/* title field */}
           <Form.Group>
-            <Form.Label className={formStyles.Label}>Title</Form.Label>
+            <Form.Label htmlFor="title" className={formStyles.Label}>Title</Form.Label>
             <Form.Control
+              id="title"
               type="text"
               name="title"
               value={title}
@@ -108,8 +109,9 @@ function TrackCreateForm() {
 
           {/* artist field */}
           <Form.Group>
-            <Form.Label className={formStyles.Label}>Artist</Form.Label>
+            <Form.Label htmlFor="artist" className={formStyles.Label}>Artist</Form.Label>
             <Form.Control
+              id="artist"
               type="text"
               name="artist"
               value={artist}
@@ -157,8 +159,9 @@ function TrackCreateForm() {
 
           {/* genre_id field */}
           <Form.Group>
-            <Form.Label className={formStyles.Label}>Genre</Form.Label>
+            <Form.Label htmlFor="genre" className={formStyles.Label}>Genre</Form.Label>
             <Form.Control
+              id="genre"
               as="select"
               custom
               name="genre_id"
@@ -191,8 +194,9 @@ function TrackCreateForm() {
 
           {/* opinion field */}
           <Form.Group>
-            <Form.Label className={formStyles.Label}>Opinion</Form.Label>
+            <Form.Label htmlFor="opinion" className={formStyles.Label}>Opinion</Form.Label>
             <Form.Control
+              id="opinion"
               as="textarea"
               rows={3}
               name="opinion"

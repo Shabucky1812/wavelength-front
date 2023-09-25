@@ -116,8 +116,9 @@ function TrackEditForm() {
           <hr />
           {/* title field */}
           <Form.Group>
-            <Form.Label className={formStyles.Label}>Title</Form.Label>
+            <Form.Label htmlFor="title" className={formStyles.Label}>Title</Form.Label>
             <Form.Control
+              id="title"
               type="text"
               name="title"
               value={title}
@@ -132,8 +133,9 @@ function TrackEditForm() {
 
           {/* artist field */}
           <Form.Group>
-            <Form.Label className={formStyles.Label}>Artist</Form.Label>
+            <Form.Label htmlFor="artist" className={formStyles.Label}>Artist</Form.Label>
             <Form.Control
+              id="artist"
               type="text"
               name="artist"
               value={artist}
@@ -174,8 +176,9 @@ function TrackEditForm() {
 
           {/* genre field */}
           <Form.Group>
-            <Form.Label className={formStyles.Label}>Genre</Form.Label>
+            <Form.Label htmlFor="genre" className={formStyles.Label}>Genre</Form.Label>
             <Form.Control
+              id="genre"
               as="select"
               custom
               name="genre_id"
@@ -208,8 +211,9 @@ function TrackEditForm() {
 
           {/* opinion field */}
           <Form.Group>
-            <Form.Label className={formStyles.Label}>Opinion</Form.Label>
+            <Form.Label htmlFor="opinion" className={formStyles.Label}>Opinion</Form.Label>
             <Form.Control
+              id="opinion"
               as="textarea"
               rows={3}
               name="opinion"

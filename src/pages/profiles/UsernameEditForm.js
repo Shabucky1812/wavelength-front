@@ -69,8 +69,9 @@ function UsernameEditForm() {
       <hr />
       <Form onSubmit={handleSubmit} className={styles.Form}>
         <Form.Group className={styles.ProfileFormGroup}>
-          <Form.Label className={formStyles.Label}>Change username</Form.Label>
+          <Form.Label htmlFor="username" className={formStyles.Label}>Change username</Form.Label>
           <Form.Control
+            id="username"
             placeholder="username"
             type="text"
             value={username}

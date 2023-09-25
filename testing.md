@@ -99,6 +99,15 @@ Additionally, errors regarding variable names not being in camelcase have been i
 ![ESLint results for the tracks pages](/documentation/testing/jsx-tracks-pages.png)  
 
 ### Jest Testing:  
+Alongside the manual testing carried out for this project, some basic jest testing has been implemented for the NavBar component.
+
+For additional information regarding the tests written, please see the following file:
+- [NavBar.tests.js](/src/components/__tests__/NavBar.tests.js)
+
+The results for these tests can be seen below:  
+![Jest results](/documentation/testing/jest-tests.png)  
+
+As you can see, all of the jest tests written for this version of the project are passing. I would have liked to implement much more extensive jest testing, however I only have a realistic amount of time to spend on this project so this will have to do for now.
 
 ### Lighthouse results:  
 

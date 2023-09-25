@@ -70,8 +70,9 @@ function PasswordEditForm() {
       <hr />
       <Form onSubmit={handleSubmit} className={formStyles.Form}>
         <Form.Group className={styles.ProfileFormGroup}>
-          <Form.Label className={formStyles.Label}>New password</Form.Label>
+          <Form.Label htmlFor="password1" className={formStyles.Label}>New password</Form.Label>
           <Form.Control
+            id="password1"
             placeholder="new password"
             type="password"
             value={new_password1}
@@ -85,8 +86,9 @@ function PasswordEditForm() {
           </Alert>
         ))}
         <Form.Group className={styles.ProfileFormGroup}>
-          <Form.Label className={formStyles.Label}>Confirm password</Form.Label>
+          <Form.Label htmlFor="password2" className={formStyles.Label}>Confirm password</Form.Label>
           <Form.Control
+            id="password2"
             placeholder="confirm new password"
             type="password"
             value={new_password2}
