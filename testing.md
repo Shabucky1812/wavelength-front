@@ -3,6 +3,25 @@
 ## Automated Testing
 
 ### HTML validation:  
+All of the HTML written for this website was validated using [this HTML validator](https://validator.w3.org/).  
+
+#### Discover/Feed Pages:
+![HTML validator results for discover/feed pages]()  
+
+#### Search Page:
+![HTML validator results for search page]()  
+
+#### Profile Page:
+![HTML validator results for profile page]()  
+
+#### Share Track Page:
+![HTML validator results for share track page]()  
+
+#### Sign In Page:
+![HTML validator results for sign in page]()  
+
+#### Sign Up Page:
+![HTML validator results for sign up page]()  
 
 ### CSS validation:  
 
