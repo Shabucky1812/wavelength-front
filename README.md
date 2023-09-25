@@ -210,6 +210,19 @@ Wavelength uses only one font from [Google Fonts](https://fonts.google.com/):
     ![Profile password edit form](/documentation/readme/edit-profile-password-form.png)  
     From the profile edit forms dropdown referenced above, a user can access forms to edit their: profile picture, username, and password. These forms can all be seen above and are mostly self-explanatory. The profile image form preview functions in the same way as the cover art preview in the share and edit track forms (F07, F09).
 
+### Reusable components:
+Following good practice for using React, the following components are re-used throughout the site:
+- NavBar component - present on all pages.
+- Avatar component - used wherever a profile picture needs to be rendered.
+- Asset component - used to render various messages and the loading spinner.
+- Dropdown component - used on tracks, reviews, and profiles to access extra options.
+- Track component - used wherever tracks need to be rendered.
+
+Additionally, whilst they don't render any visible components, the following components are used by the website multiple times for a number of reasons:
+- CurrentUserContext component - used wherever another component needs information about the logged in user.
+- useRedirect component - used to redirect users in certain circumstances (e.g. logged in users trying to access sign in/up forms).
+- utils component - used throughout to access a variety of utility functions
+
 ### Future Implementations:  
 In terms of future development, Wavelength could be improved in a number of ways:
 - Firstly, and probably most importantly, the way users currently share new tracks is less than ideal for a couple of reasons. As of now, users have to manually find, save, and upload cover art from their own device's files as well as having to enter the song's title and artist. Obviously this isn't great from a user experience perspective, and it is also not a perfect solution for the website because there is nothing preventing users from submitting irrelevant data. When I originally planned the site, I intended for the site to interact with an external API such as SpotifyAPI to allow users to search for the track they would like to share in order to request all of the data needed for the track instance automatically. This feature never made it to the first version of Wavelength because I didn't want the project to be too complicated as I cannot maintain it once it is submitted until I finish the Code Institute course. However, I definitely would like to try and introduce this functionality in the future.
