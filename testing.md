@@ -110,6 +110,25 @@ The results for these tests can be seen below:
 As you can see, all of the jest tests written for this version of the project are passing. I would have liked to implement much more extensive jest testing, however I only have a realistic amount of time to spend on this project so this will have to do for now.
 
 ### Lighthouse results:  
+Google DevTools provides a service called Lighthouse report which I use to confirm that my code is accessible. The results of this report for each page can be seen below:  
+
+#### Discover Page:
+![Lighthouse results for discover page](/documentation/testing/lighthouse-discover.png)  
+
+#### Search Page:
+![Lighthouse results for search page](/documentation/testing/lighthouse-search-page.png)  
+
+#### Profile Page:
+![Lighthouse results for profile page](/documentation/testing/lighthouse-profiles-page.png)  
+
+#### Share Track:
+![Lighthouse results for share track page](/documentation/testing/lighthouse-share-track.png)  
+
+#### Sign In Page:
+![Lighthouse results for sign in page](/documentation/testing/lighthouse-sign-in.png)  
+
+#### Sign Up Page:
+![Lighthouse results for sign page](/documentation/testing/lighthouse-sign-up.png)  
 
 ## Manual Testing
 
