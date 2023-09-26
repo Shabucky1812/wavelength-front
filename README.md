@@ -300,5 +300,12 @@ Please find the testing write-up for this project in [this Testing Document](tes
 ## Credits
 
 ### Contents  
+- All of the code for this website was written by me, [Shaun Buck](https://github.com/Shabucky1812), although certain components take heavy influence from the Code Institute Moments walkthrough project - in particular: the utils, hooks, and context components.
+- Background images for the sign in and up forms are taken from [Pexels](https://www.pexels.com/).
+- The following sources where used to help setting up ESLint:
+    - [Stack Overflow - issue with file extension '.js'](https://stackoverflow.com/questions/43031126/jsx-not-allowed-in-files-with-extension-js-with-eslint-config-airbnb)
+    - [Stack Overflow - issue with arrow function return statements](https://stackoverflow.com/questions/52636910/eslint-error-unexpected-block-statement-surrounding-arrow-body-move-the-retur)
+    - [Guide to setting up Airbnb style guide with ESLint](https://enlear.academy/how-to-set-up-airbnb-style-guide-82413ea6c5f2)
 
 ### Acknowledgements  
+This is my final project for my course with Code Institute! As such it feels important to firstly send a big thank you to Code Institute for the entire full stack software development programme. Additionally, I want to send another big thanks to anyone who has read this README, hopefully you enjoyed. I'm very happy with Wavelength for now, and pleased in myself for making this far, I can't wait to get started in software development as a career.
