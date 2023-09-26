@@ -163,6 +163,23 @@ To show how the features of this website meet the requirements of the user stori
 ### Functionality  
 | Test Label | Test Action | Expected Outcome | Test Outcome |
 |------------|-------------|------------------|--------------|
+| Navigation - Logged Out | Use all available links from the navbar whilst logged out | Links should send user to right location | PASS |
+| Navigation - Logged In | Use all available links from the navbar whilst logged in | Links should send user to right location | PASS |
+| Sign Up | Try to create a new account | New profile should be created with submitted username + user should redirect to sign in form | PASS |
+| Sign In | Try to sign in with valid data | User should be signed in to relevant account | PASS |
+| Logged in redirect | Try to access sign in + up forms whilst logged in | User should redirect instead of rendering forms | PASS |
+| Tracks Filter | Use search + genre filters on tracks | Tracks should be filtered appropriately | PASS |
+| Share Track | Try to share a new track | New track should be created | PASS |
+| Edit Track | Attempt to edit a track's data | Track should be edited correctly | PASS |
+| Delete Track | Try to delete a track | Track should be deleted | PASS |
+| Review Form Rendering | See if review form renders in various states | Form should appear if authenticated + unreviewed, not if otherwise | PASS |
+| Create Review | Attempt to review a track | Review should be created and listed below track | PASS |
+| Edit Review | Edit a review | Review should be updated accordingly | PASS |
+| Delete Review | Try to delete a review | Review should be deleted | PASS |
+| Search Profiles | Use search page to find profiles | Profiles should be filtered according to query | PASS |
+| Follow/Unfollow | Use follow and unfollow buttons on preview + profile page | Profiles should be followed/unfollowed | PASS |
+| Edit Profile | Use profile editing forms | Profile details should be edited | PASS |
+| Sign Out | Sign out of an account | User should be signed out and returned to the discover page | PASS |
 
 ### Browser Compatibility  
 This website fully functions on the following web browsers:  
