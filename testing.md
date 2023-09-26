@@ -192,6 +192,8 @@ This website fully functions on the following web browsers:
 ### Known Bugs:  
 From what I can tell from my testing, Wavelength seems free from any major bugs. As a note, I did notice that when a user left either the track detail page or the profile page, an error about unmounted components was logged to the console. However, when I attempted to check this whilst testing, the error was no longer logging. I don't actually know what I ever changed to stop this from happening, so it may well happen again in the future. Either way, even when this behavior was occuring, it had no negative effect on the website.
 
+One last semi-bug related addition: throughout the project's code, you may notice commented out console logs within try-catch blocks. Whilst I would prefer not to have commented out code present, this was suggested as best practice by Code Institute.
+
 ### Solved Bugs:  
 - Early in the project's development, I was receiving a console error about i elements. This was due to the icons I was copying from font awesome having a 'class' attribute which react wasn't happy about. I fixed this by changing all of the class attributes to className attributes as React prefers.
 - Since I had not used it before, using ESLint for this project caused a variety of issues. I ultimately fixed any issues from ESLint by creating a '.eslintignore' file and adding a line at the top of any error producing files to prevent ESLint from checking them.
