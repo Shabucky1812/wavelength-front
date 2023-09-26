@@ -133,11 +133,32 @@ Google DevTools provides a service called Lighthouse report which I use to confi
 ## Manual Testing
 
 ### User Stories  
-To show how the features of this website meet the requirements of the user stories, I have created this chart that demostrates which features are relevant to each user story:  
+To show how the features of this website meet the requirements of the user stories, I have created this chart that demonstrates which features are relevant to each user story:  
 
 | User Story | Achieved | Relevant Features |
 |------------|----------|-------------------|
+| US01 - Create new account | YES | F01 - Navbar (Logged Out), F03 - Sign Up Form |
+| US02 - Sign in | YES | F01 - Navbar (Logged Out), F04 - Sign In Form |
+| US03 - Sign out | YES | F02 - Navbar (Logged In) |
+| US04 - Edit profile | YES | F16 - Profile Edit Forms |
+| US05 - Delete profile | NO | (\*read more about below) |
+| US06 - View profiles | YES | F13 - Profiles Search Bar, F14 - Profile Previews, F15 - Profile Page |
+| US07 - Follow/Unfollow profiles | YES | F14 - Profile Previews, F15 - Profile Page |
+| US08 - Search profiles | YES | F13 - Profiles Search Bar |
+| US09 - Share tracks | YES | F07 - Share Track Form |
+| US10 - Edit track | YES | F09 - Edit Track Form |
+| US11 - Delete Track | YES | F08 - Track |
+| US12 - View tracks (list formats) | YES | F08 - Track, F05 - Tracks Search Bar |
+| US13 - View tracks (detailed view) | YES | F08 - Track |
+| US14 - Search tracks | YES | F05 - Tracks Search Bar, F06 - Genre Filter |
+| US15 - Create review | YES | F10 - Review Create Form |
+| US16 - Edit review | YES | F12 - Edit Review Form |
+| US17 - Delete review | YES | F11 - Reviews |
+| US18 - View reviews | YES | F11 - Reviews |
+| US19 - Accessibility | YES | 100 accessibility score on all lighthouse reports |
+| US20 - Positive site experience | YES | styling throughout |
 
+\* I ultimately decided not to include profile deletion in this version of the project. It's not a necessary or major feature and I wanted to spend more time on the more important features (tracks/reviews). If the site was to develop popularity, then I would consider adding this feature.
 
 ### Functionality  
 | Test Label | Test Action | Expected Outcome | Test Outcome |
