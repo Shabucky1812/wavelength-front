@@ -144,6 +144,10 @@ To show how the features of this website meet the requirements of the user stori
 |------------|-------------|------------------|--------------|
 
 ### Browser Compatibility  
+This website fully functions on the following web browsers:  
+- Google Chrome
+- Microsoft Edge
+- Mozilla Firefox
 
 ## Bugs
 
@@ -152,6 +156,12 @@ To show how the features of this website meet the requirements of the user stori
 ### Solved Bugs:  
 
 ### Responsiveness:  
+Wavelength was built with responsiveness in mind throughout. The best way to view this for yourself would just be to view the live site and adjust the screen size. I have included example screenshots for the site at small and large screens below.
 
+320px screen size:  
+![Example screen for 320px screen size.](/documentation/testing/responsiveness-small.png)  
+
+4k screen size:  
+![Example screen for 4k screen size.](/documentation/testing/responsiveness-large.png)  
 
 Return to [README](README.md)
